@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#0B0B26;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4,h5,p,ul,ol,figure,blockquote{margin:0;padding:0}
+ul{list-style:none}
+a{color:#000075;text-decoration:none}
+a:hover{color:#0B9D59}
+button{font-family:inherit}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.site{background:#fff;margin:0 auto;container-type:inline-size}
+.pgi{container-type:inline-size;width:100%}
+[data-page]{display:none}
+[data-page="cover"]{display:block}
+.pg-home [data-page="cover"],.pg-about [data-page="cover"],.pg-vision [data-page="cover"],.pg-milestone [data-page="cover"],.pg-bod [data-page="cover"],.pg-biz [data-page="cover"],.pg-bizdetail [data-page="cover"],.pg-rental [data-page="cover"],.pg-projects [data-page="cover"],.pg-project [data-page="cover"],.pg-news [data-page="cover"],.pg-article [data-page="cover"],.pg-gov [data-page="cover"],.pg-career [data-page="cover"],.pg-contact [data-page="cover"]{display:none}
+.pg-home [data-page="home"],.pg-about [data-page="about"],.pg-vision [data-page="vision"],.pg-milestone [data-page="milestone"],.pg-bod [data-page="bod"],.pg-biz [data-page="biz"],.pg-bizdetail [data-page="bizdetail"],.pg-rental [data-page="rental"],.pg-projects [data-page="projects"],.pg-project [data-page="project"],.pg-news [data-page="news"],.pg-article [data-page="article"],.pg-gov [data-page="gov"],.pg-career [data-page="career"],.pg-contact [data-page="contact"]{display:block}
+.pg-cover .site-hd,.pg-cover .site-ft{display:none}
+.pg-label{display:none}
+.board .site-hd,.board .site-ft{display:none}
+.board .pages{display:grid;grid-template-columns:repeat(auto-fill,380px);justify-content:center;gap:24px;padding:28px;background:#0B0B26}
+.board [data-page]{display:block!important;background:#fff;border-radius:10px;overflow:hidden;height:620px;width:380px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.board .pgi{width:1440px;transform:scale(.2639);transform-origin:top left}
+.board .pg-label{display:flex;align-items:center;gap:9px;position:absolute;left:0;right:0;bottom:0;z-index:3;background:#000075;color:#fff;padding:10px 14px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+[data-l="id"]{display:none}
+.lang-id [data-l="id"]{display:revert}
+.lang-id [data-l="en"]{display:none}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes mark{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.rv{animation:rise .85s cubic-bezier(.16,.8,.28,1) both}
+.fi{animation:fadein 1.1s ease both}
+.gx{animation:grow .9s cubic-bezier(.16,.8,.28,1) both;transform-origin:left}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.6cqw,40px)}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,1.8cqw,26px)}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,1.5cqw,22px)}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4.4cqw,72px);align-items:start}
+.pad{padding-left:clamp(20px,5cqw,88px);padding-right:clamp(20px,5cqw,88px)}
+.sec{padding-top:clamp(48px,6.6cqw,108px);padding-bottom:clamp(48px,6.6cqw,108px)}
+.row{display:flex;flex-wrap:wrap;gap:14px}
+.smhide{display:revert}
+.smshow{display:none}
+@container (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.split{grid-template-columns:1fr}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}.smhide{display:none}.smshow{display:flex}}
+@container (max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.btn,.btn2,.btnw{white-space:nowrap}
+.vp-tablet .g4,.vp-tablet .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+.vp-tablet .split{grid-template-columns:1fr}
+.vp-mobile .g2,.vp-mobile .g3,.vp-mobile .g4,.vp-mobile .split{grid-template-columns:1fr}
+.vp-tablet .smhide,.vp-mobile .smhide{display:none!important}
+.vp-tablet .smshow,.vp-mobile .smshow{display:flex!important}
+.board .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.board .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.board .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.board .split{grid-template-columns:1.05fr .95fr}
+.eyb{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#0B9D59}
+.d1{font-size:clamp(38px,6.4cqw,90px);line-height:.95;letter-spacing:-.035em;font-weight:700}
+.d2{font-size:clamp(30px,4.3cqw,60px);line-height:1;letter-spacing:-.03em;font-weight:700}
+.h2{font-size:clamp(25px,3.1cqw,44px);line-height:1.04;letter-spacing:-.025em;font-weight:700;color:#000075}
+.h3{font-size:clamp(17px,1.65cqw,24px);line-height:1.22;letter-spacing:-.015em;font-weight:700;color:#000075}
+.lead{font-size:clamp(15px,1.3cqw,19px);line-height:1.62;color:#32323c}
+.bd{font-size:clamp(13.5px,1cqw,15.5px);line-height:1.72;color:#4d4d58}
+.cap{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#55557A}
+.card{background:#fff;border:1px solid rgba(0,0,117,.13);padding:clamp(18px,2cqw,28px);transition:transform .4s cubic-bezier(.16,.8,.28,1),box-shadow .4s,border-color .4s}
+.card:hover{border-color:#0B9D59;transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,117,.12)}
+.btn{display:inline-flex;align-items:center;gap:11px;background:#000075;color:#fff;padding:15px 26px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;border:0;cursor:pointer;transition:background .3s,transform .3s}
+.btn:hover{background:#0B9D59;transform:translateY(-2px)}
+.btn2{display:inline-flex;align-items:center;gap:11px;background:transparent;color:#000075;padding:14px 25px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;border:1px solid rgba(0,0,117,.3);cursor:pointer;transition:.3s}
+.btn2:hover{border-color:#0B9D59;color:#0B9D59}
+.btnw{display:inline-flex;align-items:center;gap:11px;background:#fff;color:#000075;padding:15px 26px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;border:0;cursor:pointer;transition:.3s}
+.btnw:hover{background:#0B9D59;color:#fff}
+.ph{background:repeating-linear-gradient(135deg,#e9e9e6 0 8px,#f4f4f1 8px 16px);display:flex;align-items:flex-end;padding:14px;overflow:hidden;position:relative}
+.ph>span{font-family:ui-monospace,Menlo,monospace;font-size:9.5px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:#55557A}
+.phn{background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 8px,rgba(255,255,255,.02) 8px 16px),#000075;display:flex;align-items:flex-end;padding:14px;overflow:hidden;position:relative}
+.phn>span{font-family:ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.rule{height:3px;width:54px;background:#BD0004}
+.nvi{position:relative}
+.nvl{display:flex;align-items:center;gap:6px;color:#000075;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:26px 0;cursor:pointer;transition:color .25s;background:none;border:0}
+.nvi:hover>.nvl{color:#0B9D59}
+.mega{display:none;position:absolute;top:100%;left:-24px;background:#fff;border-top:3px solid #0B9D59;box-shadow:0 30px 60px rgba(0,0,117,.18);padding:26px 30px;min-width:270px;z-index:40;animation:mark .28s ease both}
+.nvi:hover>.mega{display:block}
+.mgl{display:block;font-size:13.5px;line-height:1;color:#3a3a46;padding:9px 0;cursor:pointer;transition:.2s;border-bottom:1px solid rgba(0,0,117,.07)}
+.mgl:hover{color:#0B9D59;padding-left:6px}
+.ftl{font-size:13px;line-height:1;color:rgba(255,255,255,.62);padding:7px 0;display:block;cursor:pointer;transition:.2s}
+.ftl:hover{color:#0B9D59}
+.tab{background:none;border:1px solid rgba(0,0,117,.2);padding:9px 16px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#000075;cursor:pointer;transition:.25s}
+.tab:hover{background:#000075;color:#fff;border-color:#000075}
+.chip{background:none;border:0;border-bottom:2px solid transparent;padding:6px 2px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(0,0,117,.55);cursor:pointer;transition:.25s}
+.chip:hover{color:#000075;border-color:#BD0004}
+.mtile{position:relative;overflow:hidden;cursor:pointer}
+.mtile .ph,.mtile .phn{transition:transform .7s cubic-bezier(.16,.8,.28,1)}
+.mtile:hover .ph,.mtile:hover .phn{transform:scale(1.05)}
+.chb{background:none;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.7);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 13px;cursor:pointer;transition:.25s;font-family:ui-monospace,Menlo,monospace}
+.chb:hover{color:#fff;border-color:#0B9D59}
+.chb[data-on="1"]{background:#0B9D59;border-color:#0B9D59;color:#fff}
+.scr{background:none;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.72);text-align:left;padding:11px 13px;cursor:pointer;transition:.25s;display:flex;align-items:center;gap:11px;font-size:12.5px}
+.scr:hover{border-color:#0B9D59;color:#fff;background:rgba(11,157,89,.12)}
+.f-toll [data-cat]:not([data-cat="toll"]),.f-dam [data-cat]:not([data-cat="dam"]),.f-bld [data-cat]:not([data-cat="bld"]),.f-twr [data-cat]:not([data-cat="twr"]),.f-ikn [data-cat]:not([data-cat="ikn"]){display:none}
+.chp{background:none;border:1px solid rgba(0,0,117,.22);padding:10px 17px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#000075;cursor:pointer;transition:.25s;font-family:inherit;white-space:nowrap}
+.chp:hover{border-color:#0B9D59;color:#0B9D59}
+.f-all .chp-all,.f-toll .chp-toll,.f-dam .chp-dam,.f-bld .chp-bld,.f-twr .chp-twr,.f-ikn .chp-ikn{background:#000075;color:#fff;border-color:#000075}
+.acc{border-top:1px solid rgba(0,0,117,.12)}
+.acc>summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:clamp(15px,1.4cqw,19px);font-weight:700;color:#000075;letter-spacing:-.01em;transition:.25s}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary:hover{color:#0B9D59}
+.acc>summary>span:last-child{color:#BD0004;font-size:20px;line-height:1}
+.dl{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 0;border-bottom:1px solid rgba(0,0,117,.1);cursor:pointer;transition:.25s}
+.dl:hover{padding-left:8px;border-color:#0B9D59}
+.bar{height:6px;background:rgba(0,0,117,.1);overflow:hidden}
+.bar>i{display:block;height:100%;background:#000075}
+.barw{height:6px;background:rgba(255,255,255,.18);overflow:hidden}
+.barw>i{display:block;height:100%;background:#0B9D59}
+.num{font-family:ui-monospace,Menlo,monospace;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#000075}
+.gdot{width:7px;height:7px;border-radius:50%;background:#0B9D59;flex:none}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.3}}
+.live{animation:blip 2.4s ease-in-out infinite}
+.eqr{display:grid;grid-template-columns:1.7fr .85fr .85fr .7fr .6fr;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid rgba(0,0,117,.1);transition:.25s}
+.eqr:hover{background:rgba(11,157,89,.05)}
+.eqh{display:grid;grid-template-columns:1.7fr .85fr .85fr .7fr .6fr;gap:14px;padding-bottom:11px;border-bottom:1px solid rgba(0,0,117,.2)}
+.eqh>span:last-child,.eqr>span:last-child,.eqr>span:last-child>span{white-space:nowrap}
+.pht{background-size:cover;background-position:center;background-repeat:no-repeat;overflow:hidden}
+.eqthumb{width:62px;height:44px;flex:none;background-size:cover;background-position:center;border:1px solid rgba(0,0,117,.14)}
+.eqr>span:first-child{display:flex;align-items:center;gap:13px;min-width:0}
+@container (max-width:700px){.eqr,.eqh{grid-template-columns:minmax(0,1fr) max-content}.eqh>span:nth-child(n+2):nth-child(-n+4),.eqr>span:nth-child(n+2):nth-child(-n+4){display:none}}
+.vp-mobile .eqr,.vp-mobile .eqh{grid-template-columns:minmax(0,1fr) max-content}
+.vp-mobile .eqh>span:nth-child(n+2):nth-child(-n+4),.vp-mobile .eqr>span:nth-child(n+2):nth-child(-n+4){display:none}
+.mapsplit{display:grid;grid-template-columns:1.55fr .95fr;gap:0;align-items:stretch}
+@container (max-width:900px){.mapsplit{grid-template-columns:1fr}}
+.vp-tablet .mapsplit,.vp-mobile .mapsplit{grid-template-columns:1fr}
+.board .mapsplit{grid-template-columns:1.55fr .95fr}
+.mapw{width:100%;height:clamp(300px,32cqw,500px);border:0;display:block;background:#04042B}
+.vp-mobile .mapw{height:300px}
+.board .mapw{height:420px}
+.site-hd .mono{white-space:nowrap}
+.mo-off .rv,.mo-off .fi,.mo-off .gx{animation:none!important}
+.mo-off .site [style*="animation:spin"]{animation:none!important}
+.no-tb>header{display:none}
+.dense .sec{padding-top:clamp(32px,4cqw,64px);padding-bottom:clamp(32px,4cqw,64px)}
+</style>
+</helmet>
+<div class="{{appCls}}" style="min-height:100vh;background:#0B0B26">
+<header style="position:sticky;top:0;z-index:200;background:rgba(11,11,38,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 18px;flex-wrap:wrap">
+<div style="display:flex;align-items:center;gap:13px;min-width:0">
+<div style="background:#fff;padding:5px 8px;display:flex;align-items:center"><img src="assets/logo-wki.png" alt="Waskita Karya Infrastruktur" style="height:24px;display:block"></div>
+<div style="min-width:0">
+<div style="color:#fff;font-size:12.5px;font-weight:700;letter-spacing:-.01em;white-space:nowrap">Website Redesign 2026</div>
+<div class="mono" style="color:rgba(255,255,255,.45);font-size:10px;letter-spacing:.08em">waskitainfrastruktur.co.id</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">
+<div style="display:flex;border:1px solid rgba(255,255,255,.18)">
+<button class="chb" style="border:0" data-on="{{isProto}}" onClick="{{setProto}}">Prototype</button>
+<button class="chb" style="border:0;border-left:1px solid rgba(255,255,255,.18)" data-on="{{isBoard}}" onClick="{{setBoard}}">Board</button>
+</div>
+<div style="display:flex;border:1px solid rgba(255,255,255,.18)">
+<button class="chb" style="border:0" data-on="{{isD}}" onClick="{{setD}}">1440</button>
+<button class="chb" style="border:0;border-left:1px solid rgba(255,255,255,.18)" data-on="{{isT}}" onClick="{{setT}}">834</button>
+<button class="chb" style="border:0;border-left:1px solid rgba(255,255,255,.18)" data-on="{{isM}}" onClick="{{setM}}">390</button>
+</div>
+<div style="display:flex;border:1px solid rgba(255,255,255,.18)">
+<button class="chb" style="border:0" data-on="{{isEn}}" onClick="{{setEn}}">EN</button>
+<button class="chb" style="border:0;border-left:1px solid rgba(255,255,255,.18)" data-on="{{isId}}" onClick="{{setId}}">ID</button>
+</div>
+<div class="mono" style="color:rgba(255,255,255,.4);font-size:10.5px;letter-spacing:.06em;padding-left:4px">{{pageLabel}}</div>
+</div>
+</header>
+<div ref="{{setWrap}}" style="padding:0">
+<div class="{{rootCls}}" style="width:{{stageW}};zoom:{{stageZ}}">
+
+<header class="site-hd" style="background:#fff;position:relative;z-index:60;border-bottom:1px solid rgba(0,0,117,.1)">
+<div style="background:#000075;color:#fff">
+<div class="pad" style="display:flex;align-items:center;justify-content:space-between;gap:16px;height:42px">
+<div style="display:flex;align-items:center;gap:22px">
+<span class="mono" style="font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.72)">021-8060 2821</span>
+<span class="mono smhide" style="font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.72)">info.wki@waskitainfrastruktur.co.id</span>
+</div>
+<div style="display:flex;align-items:center;gap:20px">
+<span class="mono smhide" style="font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.72)">Portal WKI</span>
+<div style="display:flex;align-items:center;gap:8px">
+<button class="mono" style="background:none;border:0;padding:0;font-size:11px;letter-spacing:.08em;cursor:pointer;color:{{enCol}}" onClick="{{setEn}}">EN</button>
+<span style="color:rgba(255,255,255,.3);font-size:11px">/</span>
+<button class="mono" style="background:none;border:0;padding:0;font-size:11px;letter-spacing:.08em;cursor:pointer;color:{{idCol}}" onClick="{{setId}}">ID</button>
+</div>
+</div>
+</div>
+</div>
+<div class="pad" style="display:flex;align-items:center;justify-content:space-between;gap:24px">
+<div style="display:flex;align-items:center;gap:14px;cursor:pointer;padding:14px 0" onClick="{{goHome}}">
+<img src="assets/logo-wki.png" alt="Waskita Karya Infrastruktur" style="height:46px;display:block">
+<div class="smhide" style="border-left:1px solid rgba(0,0,117,.16);padding-left:14px">
+<div style="font-size:13px;font-weight:700;color:#000075;letter-spacing:-.01em;line-height:1.15">PT Waskita Karya<br>Infrastruktur</div>
+</div>
+</div>
+<nav class="smhide" style="display:flex;align-items:center;gap:clamp(14px,2.1cqw,32px)">
+<div class="nvi"><button class="nvl">About</button>
+<div class="mega"><div class="eyb" style="margin-bottom:14px">The Company</div>
+<a class="mgl" onClick="{{goAbout}}">Introduction</a><a class="mgl" onClick="{{goVision}}">Vision &amp; Mission</a><a class="mgl" onClick="{{goVision}}">Core Values</a><a class="mgl" onClick="{{goMilestone}}">Milestone</a><a class="mgl" onClick="{{goBod}}">Board of Directors</a><a class="mgl" onClick="{{goBod}}">Organizational Structure</a><a class="mgl" onClick="{{goAbout}}">The Group</a><a class="mgl" style="border:0" onClick="{{goAbout}}">Awards &amp; Certifications</a></div>
+</div>
+<div class="nvi"><button class="nvl">Business</button>
+<div class="mega"><div class="eyb" style="margin-bottom:14px">Four Business Lines</div>
+<a class="mgl" onClick="{{goBizDetail}}">Infrastructure</a><a class="mgl" onClick="{{goRental}}">Heavy Equipment &amp; Rental</a><a class="mgl" onClick="{{goBiz}}">Steel Fabrication</a><a class="mgl" onClick="{{goBiz}}">Energy</a><a class="mgl" style="border:0" onClick="{{goBiz}}">All Business Lines</a></div>
+</div>
+<div class="nvi"><button class="nvl">Projects</button>
+<div class="mega"><div class="eyb" style="margin-bottom:14px">36 Projects</div>
+<a class="mgl" onClick="{{goProjects}}">All Projects</a><a class="mgl" onClick="{{goProjects}}">Toll Roads</a><a class="mgl" onClick="{{goProjects}}">Dams &amp; Water</a><a class="mgl" onClick="{{goProjects}}">Buildings &amp; Housing</a><a class="mgl" onClick="{{goProjects}}">Towers &amp; Transmission</a><a class="mgl" style="border:0" onClick="{{goProject}}">IKN Portfolio</a></div>
+</div>
+<div class="nvi"><button class="nvl">Newsroom</button>
+<div class="mega"><div class="eyb" style="margin-bottom:14px">News &amp; Events</div>
+<a class="mgl" onClick="{{goNews}}">Corporate News</a><a class="mgl" onClick="{{goNews}}">CSR</a><a class="mgl" onClick="{{goNews}}">Procurement</a><a class="mgl" style="border:0" onClick="{{goArticle}}">Latest Release</a></div>
+</div>
+<div class="nvi"><button class="nvl">Governance</button>
+<div class="mega" style="left:auto;right:-24px"><div class="eyb" style="margin-bottom:14px">Transparency</div>
+<a class="mgl" onClick="{{goGov}}">Corporate Governance</a><a class="mgl" onClick="{{goGov}}">Whistleblowing System</a><a class="mgl" onClick="{{goGov}}">Reporting of Gratification</a><a class="mgl" onClick="{{goGov}}">Public Information (KIP)</a><a class="mgl" style="border:0" onClick="{{goGov}}">Company Profile</a></div>
+</div>
+<div class="nvi"><button class="nvl" onClick="{{goCareer}}">Career</button></div>
+<button class="btn" style="padding:13px 22px" onClick="{{goContact}}">Contact</button>
+</nav>
+<button class="smshow" style="background:#000075;border:0;color:#fff;width:46px;height:46px;flex:none;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:4px">
+<span style="display:block;width:18px;height:2px;background:#fff"></span><span style="display:block;width:18px;height:2px;background:#fff"></span><span style="display:block;width:18px;height:2px;background:#fff"></span>
+</button>
+</div>
+</header>
+
+<div class="pages">
+
+<div data-page="cover"><div class="pg-label"><span>00</span><span>Cover &amp; Rationale</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;inset:-30% -10% auto auto;width:900px;height:900px;border:1px solid rgba(255,255,255,.1);border-radius:50%;animation:spin 90s linear infinite"></div>
+<div style="position:absolute;inset:auto auto -40% -12%;width:720px;height:720px;border:1px solid rgba(11,157,89,.35);border-radius:50%"></div>
+<div class="pad sec" style="position:relative">
+<div style="background:#fff;padding:10px 14px;display:inline-flex;margin-bottom:clamp(28px,4cqw,54px)" class="fi"><img src="assets/logo-wki.png" alt="Waskita Karya Infrastruktur" style="height:clamp(40px,4.4cqw,62px);display:block"></div>
+<div class="eyb rv" style="margin-bottom:18px">Internal Presentation &middot; Board of Directors &middot; 2026</div>
+<h1 class="d1 rv" style="color:#fff;max-width:17em;animation-delay:.08s">Website Redesign <span style="color:#0B9D59">2026</span></h1>
+<div style="display:flex;gap:8px;margin:26px 0 30px"><span class="rule gx" style="animation-delay:.3s"></span><span class="gx" style="height:3px;width:120px;background:#0B9D59;animation-delay:.42s"></span><span class="gx" style="height:3px;width:240px;background:rgba(255,255,255,.25);animation-delay:.54s"></span></div>
+<p class="lead rv" style="color:rgba(255,255,255,.78);max-width:34em;animation-delay:.2s">A complete rebuild of waskitainfrastruktur.co.id on the 2026 brand system &mdash; new information architecture, a national project map with real data, an equipment rental catalogue, and a responsive front-end ready for JSX/TSX.</p>
+<div class="g4" style="margin-top:clamp(34px,4.6cqw,64px);border-top:1px solid rgba(255,255,255,.16);padding-top:26px">
+<div class="rv" style="animation-delay:.3s"><div class="d2" style="color:#fff">15</div><div class="cap" style="color:rgba(255,255,255,.5);margin-top:8px">Screens designed</div></div>
+<div class="rv" style="animation-delay:.38s"><div class="d2" style="color:#fff">3</div><div class="cap" style="color:rgba(255,255,255,.5);margin-top:8px">Breakpoints &middot; 1440 / 834 / 390</div></div>
+<div class="rv" style="animation-delay:.46s"><div class="d2" style="color:#fff">7</div><div class="cap" style="color:rgba(255,255,255,.5);margin-top:8px">Top-level menu items (was 9)</div></div>
+<div class="rv" style="animation-delay:.54s"><div class="d2" style="color:#fff">412</div><div class="cap" style="color:rgba(255,255,255,.5);margin-top:8px">Equipment units, now rentable online</div></div>
+</div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#fff">
+<div class="split">
+<div><div class="eyb">01</div><h2 class="h2" style="margin-top:14px">What we are fixing</h2><span class="rule" style="display:block;margin-top:18px"></span></div>
+<p class="bd" style="max-width:34em">The current site runs on a page builder with nine top-level menus and dropdowns four levels deep. Content is largely flat images, the project list is an unstructured stack of 36 headings, and the layout does not hold together on a phone. The eight items below are the problems this redesign is measured against.</p>
+</div>
+<div class="g4" style="margin-top:clamp(34px,4.4cqw,62px)">
+<div class="card"><div class="mono" style="font-size:26px;font-weight:700;color:#BD0004">01</div><div class="h3" style="margin-top:14px;font-size:16px">Navigation too deep</div><p class="bd" style="margin-top:10px;font-size:13.5px">Nine top menus, four nesting levels, duplicated destinations.</p></div>
+<div class="card"><div class="mono" style="font-size:26px;font-weight:700;color:#BD0004">02</div><div class="h3" style="margin-top:14px;font-size:16px">Weak project showcase</div><p class="bd" style="margin-top:10px;font-size:13.5px">36 projects with no filtering, no map, no data, no detail pages.</p></div>
+<div class="card"><div class="mono" style="font-size:26px;font-weight:700;color:#BD0004">03</div><div class="h3" style="margin-top:14px;font-size:16px">Governance not visible</div><p class="bd" style="margin-top:10px;font-size:13.5px">GCG, WBS and KIP buried under two generic menus.</p></div>
+<div class="card"><div class="mono" style="font-size:26px;font-weight:700;color:#BD0004">04</div><div class="h3" style="margin-top:14px;font-size:16px">News hard to read</div><p class="bd" style="margin-top:10px;font-size:13.5px">Carousel of identical cards, no categories, no dates.</p></div>
+<div class="card"><div class="mono" style="font-size:26px;font-weight:700;color:#BD0004">05</div><div class="h3" style="margin-top:14px;font-size:16px">Rental business invisible</div><p class="bd" style="margin-top:10px;font-size:13.5px">412 units of equipment for hire, with no catalogue or enquiry route.</p></div>
+<div class="card"><div class="mono" style="font-size:26px;font-weight:700;color:#BD0004">06</div><div class="h3" style="margin-top:14px;font-size:16px">Poor on mobile</div><p class="bd" style="margin-top:10px;font-size:13.5px">Desktop layouts scaled down; text set in images.</p></div>
+<div class="card"><div class="mono" style="font-size:26px;font-weight:700;color:#BD0004">07</div><div class="h3" style="margin-top:14px;font-size:16px">Inconsistent identity</div><p class="bd" style="margin-top:10px;font-size:13.5px">Brand colours applied ad hoc; no type or spacing system.</p></div>
+<div class="card"><div class="mono" style="font-size:26px;font-weight:700;color:#BD0004">08</div><div class="h3" style="margin-top:14px;font-size:16px">Speed &amp; accessibility</div><p class="bd" style="margin-top:10px;font-size:13.5px">Heavy builder output, image-only text, low contrast.</p></div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#F6F6F4">
+<div class="eyb">02</div><h2 class="h2" style="margin-top:14px">Colour system</h2>
+<p class="bd" style="margin-top:16px;max-width:38em">Taken verbatim from the 2026 brand guideline, applied in the proportion set there: white carries the page, navy carries structure, green carries progress, red is reserved for emphasis only.</p>
+<div style="display:flex;margin-top:clamp(28px,3.4cqw,46px);height:clamp(64px,7cqw,104px);border:1px solid rgba(0,0,117,.14)">
+<div style="width:50%;background:#fff;display:flex;align-items:flex-end;padding:12px"><span class="mono" style="font-size:11px;font-weight:600;color:#000075">50% &middot; WHITE</span></div>
+<div style="width:30%;background:#000075;display:flex;align-items:flex-end;padding:12px"><span class="mono" style="font-size:11px;font-weight:600;color:#fff">30% &middot; #000075</span></div>
+<div style="width:15%;background:#0B9D59;display:flex;align-items:flex-end;padding:12px"><span class="mono" style="font-size:11px;font-weight:600;color:#fff">15%</span></div>
+<div style="width:5%;background:#BD0004;display:flex;align-items:flex-end;padding:12px"><span class="mono" style="font-size:11px;font-weight:600;color:#fff">5%</span></div>
+</div>
+<div class="g4" style="margin-top:26px">
+<div style="background:#fff;border:1px solid rgba(0,0,117,.14);padding:20px"><div style="height:56px;background:#fff;border:1px solid rgba(0,0,117,.14)"></div><div class="mono" style="margin-top:14px;font-size:12px;font-weight:700;color:#000075">#FFFFFF</div><div class="cap" style="margin-top:6px">Page &middot; cards &middot; body</div></div>
+<div style="background:#fff;border:1px solid rgba(0,0,117,.14);padding:20px"><div style="height:56px;background:#000075"></div><div class="mono" style="margin-top:14px;font-size:12px;font-weight:700;color:#000075">#000075</div><div class="cap" style="margin-top:6px">Header &middot; footer &middot; headings</div></div>
+<div style="background:#fff;border:1px solid rgba(0,0,117,.14);padding:20px"><div style="height:56px;background:#0B9D59"></div><div class="mono" style="margin-top:14px;font-size:12px;font-weight:700;color:#000075">#0B9D59</div><div class="cap" style="margin-top:6px">Hover &middot; sustainability &middot; eyebrow</div></div>
+<div style="background:#fff;border:1px solid rgba(0,0,117,.14);padding:20px"><div style="height:56px;background:#BD0004"></div><div class="mono" style="margin-top:14px;font-size:12px;font-weight:700;color:#000075">#BD0004</div><div class="cap" style="margin-top:6px">Section rule &middot; live markers</div></div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#fff">
+<div class="split">
+<div>
+<div class="eyb">03</div><h2 class="h2" style="margin-top:14px">Typography</h2>
+<p class="bd" style="margin-top:16px;max-width:30em">One grotesk, set the way the brand guideline sets it: tight tracking at display sizes, generous leading in body copy, monospace for data and labels. No decorative second face.</p>
+<div style="margin-top:30px;border-top:1px solid rgba(0,0,117,.12)">
+<div style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(0,0,117,.08)"><span class="cap">Display</span><span class="mono" style="font-size:12px;color:#000075">700 &middot; -3.5% tracking</span></div>
+<div style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(0,0,117,.08)"><span class="cap">Heading</span><span class="mono" style="font-size:12px;color:#000075">700 &middot; -2.5% tracking</span></div>
+<div style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(0,0,117,.08)"><span class="cap">Body</span><span class="mono" style="font-size:12px;color:#000075">400 &middot; 1.72 leading</span></div>
+<div style="display:flex;justify-content:space-between;padding:13px 0"><span class="cap">Label / data</span><span class="mono" style="font-size:12px;color:#000075">Mono 600 &middot; +18% tracking</span></div>
+</div>
+</div>
+<div style="background:#F6F6F4;padding:clamp(22px,3cqw,44px)">
+<div style="font-size:clamp(54px,9cqw,132px);line-height:.86;letter-spacing:-.05em;font-weight:700;color:#000075">Aa</div>
+<div class="d2" style="color:#000075;margin-top:22px">Collaborative<br>&amp; Sustainable</div>
+<p class="bd" style="margin-top:20px">Waskita Karya Infrastruktur invests in and operates infrastructure across power, oil and gas, mining, property, transportation and utilities.</p>
+<div class="mono" style="margin-top:20px;font-size:11px;letter-spacing:.14em;color:rgba(0,0,117,.55);text-transform:uppercase">36 Projects &middot; 4 Business Lines &middot; Est. 2014</div>
+</div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#000075;color:#fff">
+<div class="eyb">04</div><h2 class="h2" style="margin-top:14px;color:#fff">Information architecture</h2>
+<div class="g2" style="margin-top:clamp(28px,3.4cqw,46px);align-items:start">
+<div style="border:1px solid rgba(255,255,255,.18);padding:clamp(20px,2.4cqw,32px)">
+<div class="mono" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#E9A8AA">Before &middot; 9 menus &middot; 4 levels</div>
+<div style="margin-top:20px;display:flex;flex-direction:column;gap:9px">
+<div class="mono" style="font-size:12.5px;color:rgba(255,255,255,.75)">HOME</div>
+<div class="mono" style="font-size:12.5px;color:rgba(255,255,255,.75)">ABOUT US <span style="color:rgba(255,255,255,.35)">&rsaquo; 12 items &rsaquo; The Management &rsaquo; 4 items</span></div>
+<div class="mono" style="font-size:12.5px;color:rgba(255,255,255,.75)">BUSINESS LINES <span style="color:rgba(255,255,255,.35)">&rsaquo; 4 items</span></div>
+<div class="mono" style="font-size:12.5px;color:rgba(255,255,255,.75)">PROJECT</div>
+<div class="mono" style="font-size:12.5px;color:rgba(255,255,255,.75)">NEWS &amp; EVENT <span style="color:rgba(255,255,255,.35)">&rsaquo; 3 items</span></div>
+<div class="mono" style="font-size:12.5px;color:rgba(255,255,255,.75)">INFORMATION <span style="color:rgba(255,255,255,.35)">&rsaquo; 3 items</span></div>
+<div class="mono" style="font-size:12.5px;color:rgba(255,255,255,.75)">KIP <span style="color:rgba(255,255,255,.35)">&rsaquo; 2 groups &rsaquo; 4 items</span></div>
+<div class="mono" style="font-size:12.5px;color:rgba(255,255,255,.75)">CAREER</div>
+<div class="mono" style="font-size:12.5px;color:rgba(255,255,255,.75)">CONTACT</div>
+</div>
+</div>
+<div style="border:1px solid #0B9D59;padding:clamp(20px,2.4cqw,32px);background:rgba(11,157,89,.08)">
+<div class="mono" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0B9D59">After &middot; 7 menus &middot; 2 levels</div>
+<div style="margin-top:20px;display:flex;flex-direction:column;gap:9px">
+<div class="mono" style="font-size:12.5px;color:#fff">ABOUT <span style="color:rgba(255,255,255,.45)">&rsaquo; company, leadership, milestone, group</span></div>
+<div class="mono" style="font-size:12.5px;color:#fff">BUSINESS <span style="color:rgba(255,255,255,.45)">&rsaquo; 4 lines</span></div>
+<div class="mono" style="font-size:12.5px;color:#fff">PROJECTS <span style="color:rgba(255,255,255,.45)">&rsaquo; filtered index + detail</span></div>
+<div class="mono" style="font-size:12.5px;color:#fff">NEWSROOM <span style="color:rgba(255,255,255,.45)">&rsaquo; news, CSR, procurement</span></div>
+<div class="mono" style="font-size:12.5px;color:#fff">GOVERNANCE <span style="color:rgba(255,255,255,.45)">&rsaquo; GCG, WBS, KIP, profile</span></div>
+<div class="mono" style="font-size:12.5px;color:#fff">CAREER</div>
+<div class="mono" style="font-size:12.5px;color:#fff">CONTACT <span style="color:rgba(255,255,255,.45)">&rsaquo; button, not a menu</span></div>
+</div>
+<p class="bd" style="margin-top:22px;color:rgba(255,255,255,.7);font-size:13px">Information and KIP merge into Governance; The Management folds into About; Projects gains a real index with filters and per-project detail pages.</p>
+</div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#0B0B26;color:#fff">
+<div class="eyb">05</div><h2 class="h2" style="margin-top:14px;color:#fff">Screen index</h2>
+<p class="bd" style="margin-top:14px;color:rgba(255,255,255,.6);max-width:32em">Click any screen to open it. Use the toolbar to switch breakpoint, language, or to see every screen side by side.</p>
+<div class="g4" style="margin-top:34px">
+<button class="scr" onClick="{{goHome}}"><span class="mono" style="color:#0B9D59">01</span>Home</button>
+<button class="scr" style="border-color:#0B9D59;color:#fff" onClick="{{goRental}}"><span class="mono" style="color:#0B9D59">15</span>Equipment Rental &middot; new</button>
+<button class="scr" onClick="{{goAbout}}"><span class="mono" style="color:#0B9D59">02</span>Introduction</button>
+<button class="scr" onClick="{{goVision}}"><span class="mono" style="color:#0B9D59">03</span>Vision &amp; Core Values</button>
+<button class="scr" onClick="{{goMilestone}}"><span class="mono" style="color:#0B9D59">04</span>Milestone</button>
+<button class="scr" onClick="{{goBod}}"><span class="mono" style="color:#0B9D59">05</span>Board of Directors</button>
+<button class="scr" onClick="{{goBiz}}"><span class="mono" style="color:#0B9D59">06</span>Business Lines</button>
+<button class="scr" onClick="{{goBizDetail}}"><span class="mono" style="color:#0B9D59">07</span>Infrastructure</button>
+<button class="scr" onClick="{{goProjects}}"><span class="mono" style="color:#0B9D59">08</span>Projects Index</button>
+<button class="scr" onClick="{{goProject}}"><span class="mono" style="color:#0B9D59">09</span>Project Detail</button>
+<button class="scr" onClick="{{goNews}}"><span class="mono" style="color:#0B9D59">10</span>Newsroom</button>
+<button class="scr" onClick="{{goArticle}}"><span class="mono" style="color:#0B9D59">11</span>Article</button>
+<button class="scr" onClick="{{goGov}}"><span class="mono" style="color:#0B9D59">12</span>Governance &amp; KIP</button>
+<button class="scr" onClick="{{goCareer}}"><span class="mono" style="color:#0B9D59">13</span>Career</button>
+<button class="scr" onClick="{{goContact}}"><span class="mono" style="color:#0B9D59">14</span>Contact</button>
+<button class="scr" onClick="{{goRental}}"><span class="mono" style="color:#0B9D59">15</span>Equipment Rental</button>
+</div>
+</section>
+</div></div>
+
+<div data-page="home"><div class="pg-label"><span>01</span><span>Home</span></div><div class="pgi">
+<section style="position:relative;background:#000075">
+<div style="position:absolute;inset:0;overflow:hidden">
+<div class="pht" style="position:absolute;inset:0;background-image:url('assets/img/ikn-aerial.jpg')"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,117,.94) 0%,rgba(0,0,117,.72) 48%,rgba(0,0,117,.25) 100%)"></div>
+<div style="position:absolute;right:-8%;top:-24%;width:760px;height:760px;border:1px solid rgba(255,255,255,.14);border-radius:50%"></div>
+<div style="position:absolute;right:4%;bottom:-36%;width:620px;height:620px;border:1px solid rgba(11,157,89,.4);border-radius:50%"></div>
+</div>
+<div class="pad" style="position:relative;padding-top:clamp(64px,9cqw,150px);padding-bottom:clamp(120px,14cqw,210px)">
+<div class="eyb fi" data-l="en">PT Waskita Karya Infrastruktur</div>
+<div class="eyb fi" data-l="id">PT Waskita Karya Infrastruktur</div>
+<h1 class="d1 rv" style="color:#fff;max-width:14em;margin-top:20px;animation-delay:.1s"><span data-l="en">Collaborative<br>&amp; Sustainable</span><span data-l="id">Kolaboratif<br>&amp; Berkelanjutan</span></h1>
+<p class="lead rv" style="color:rgba(255,255,255,.8);max-width:30em;margin-top:26px;animation-delay:.22s"><span data-l="en">A fast-growing infrastructure and energy company investing in and operating facilities across power, oil and gas, mining, property, transportation and utilities.</span><span data-l="id">Perusahaan infrastruktur dan energi yang tumbuh cepat, berinvestasi dan mengoperasikan fasilitas di sektor kelistrikan, minyak dan gas, pertambangan, properti, transportasi, dan utilitas.</span></p>
+<div class="row rv" style="margin-top:34px;gap:12px;animation-delay:.32s">
+<button class="btnw" onClick="{{goAbout}}"><span data-l="en">Explore More</span><span data-l="id">Selengkapnya</span> &rarr;</button>
+<button class="btn" style="background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff" onClick="{{goProjects}}"><span data-l="en">Our Projects</span><span data-l="id">Proyek Kami</span></button>
+</div>
+<div class="row" style="margin-top:clamp(40px,5cqw,72px);gap:26px;align-items:center">
+<div class="mono" style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)">Scroll</div>
+<div style="height:1px;flex:1;max-width:180px;background:rgba(255,255,255,.25)"></div>
+</div>
+</div>
+</section>
+<div class="pad" style="position:relative;z-index:20;margin-top:clamp(-100px,-6.5cqw,-64px)">
+<div class="g3" style="gap:1px;background:rgba(0,0,117,.12)">
+<button class="card" style="text-align:left;cursor:pointer;border:0;background:#fff;display:flex;flex-direction:column;gap:12px;padding:clamp(22px,2.4cqw,34px)" onClick="{{goProjects}}">
+<div class="mono" style="font-size:clamp(28px,3.2cqw,46px);font-weight:700;color:#000075;letter-spacing:-.03em">36</div>
+<div class="h3" style="font-size:16px"><span data-l="en">Projects delivered &amp; in progress</span><span data-l="id">Proyek selesai &amp; berjalan</span></div>
+<div class="cap" style="color:#0B9D59">View index &rarr;</div>
+</button>
+<button class="card" style="text-align:left;cursor:pointer;border:0;background:#fff;display:flex;flex-direction:column;gap:12px;padding:clamp(22px,2.4cqw,34px)" onClick="{{goBiz}}">
+<div class="mono" style="font-size:clamp(28px,3.2cqw,46px);font-weight:700;color:#000075;letter-spacing:-.03em">04</div>
+<div class="h3" style="font-size:16px"><span data-l="en">Business lines under one group</span><span data-l="id">Lini bisnis dalam satu grup</span></div>
+<div class="cap" style="color:#0B9D59">Explore &rarr;</div>
+</button>
+<button class="card" style="text-align:left;cursor:pointer;border:0;background:#0B9D59;display:flex;flex-direction:column;gap:12px;padding:clamp(22px,2.4cqw,34px)" onClick="{{goGov}}">
+<div class="mono" style="font-size:clamp(28px,3.2cqw,46px);font-weight:700;color:#fff;letter-spacing:-.03em">GCG</div>
+<div class="h3" style="font-size:16px;color:#fff"><span data-l="en">Governance, WBS &amp; public information</span><span data-l="id">Tata kelola, WBS &amp; informasi publik</span></div>
+<div class="cap" style="color:rgba(255,255,255,.8)">Open &rarr;</div>
+</button>
+</div>
+</div>
+
+<section class="pad sec" style="background:#fff;padding-top:clamp(64px,7cqw,110px)">
+<div class="split">
+<div>
+<div class="eyb"><span data-l="en">About Us</span><span data-l="id">Tentang Kami</span></div>
+<h2 class="h2" style="margin-top:16px"><span data-l="en">We build facilities that improve the quality of life</span><span data-l="id">Kami membangun fasilitas yang meningkatkan kualitas hidup</span></h2>
+<span class="rule" style="display:block;margin-top:22px"></span>
+<p class="bd" style="margin-top:24px">Waskita Karya Infrastruktur is a fast-growing infrastructure and energy company in Indonesia. We invest and operate infrastructure and facilities in key sectors such as power plant, oil and gas, mining, property, transportation, and utility sectors.</p>
+<p class="bd" style="margin-top:16px">Through better planning, process, and management, we create facilities that help improve the quality of life of people. Every aspect of our business is characterized by professionalism and high standards of corporate governance.</p>
+<div class="row" style="margin-top:30px"><button class="btn2" onClick="{{goAbout}}"><span data-l="en">Read More</span><span data-l="id">Baca Selengkapnya</span> &rarr;</button></div>
+</div>
+<div>
+<div class="pht" style="aspect-ratio:4/5;min-height:240px;background-image:url('assets/img/dam-aerial.jpg')"></div>
+<div style="display:flex;gap:1px;margin-top:1px;background:rgba(0,0,117,.12)">
+<div style="flex:1;background:#000075;padding:20px"><div class="mono" style="color:#fff;font-size:22px;font-weight:700">2014</div><div class="cap" style="color:rgba(255,255,255,.55);margin-top:6px">Established</div></div>
+<div style="flex:1;background:#F6F6F4;padding:20px"><div class="mono" style="color:#000075;font-size:22px;font-weight:700">6</div><div class="cap" style="margin-top:6px">Subsidiaries</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:#F6F6F4" class="sec">
+<div class="pad">
+<div class="eyb"><span data-l="en">Explore Our</span><span data-l="id">Jelajahi</span></div>
+<h2 class="h2" style="margin-top:14px"><span data-l="en">Business Lines</span><span data-l="id">Lini Bisnis</span></h2>
+<div class="g4" style="margin-top:clamp(28px,3.4cqw,48px)">
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goBizDetail}}">
+<div class="pht" style="aspect-ratio:3/4;min-height:200px;background-image:url('assets/img/bridge.jpg')"></div>
+<div style="padding:22px;display:flex;flex-direction:column;gap:10px"><div class="cap" style="color:#0B9D59">01</div><div class="h3">Infrastructure</div><p class="bd" style="font-size:13px">Investment and construction of toll roads, dams, bridges and buildings.</p></div>
+</button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goRental}}">
+<div class="pht" style="aspect-ratio:3/4;min-height:200px;background-image:url('assets/img/eq-excavator.jpg')"></div>
+<div style="padding:22px;display:flex;flex-direction:column;gap:10px"><div class="cap" style="color:#0B9D59">02</div><div class="h3">Heavy Equipment</div><p class="bd" style="font-size:13px">Rental, operation and maintenance of heavy duty equipment.</p></div>
+</button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goBiz}}">
+<div class="pht" style="aspect-ratio:3/4;min-height:200px;background-image:url('assets/img/eq-crane-crawler.jpg')"></div>
+<div style="padding:22px;display:flex;flex-direction:column;gap:10px"><div class="cap" style="color:#0B9D59">03</div><div class="h3">Steel Fabrication</div><p class="bd" style="font-size:13px">Towers, girders and structural steel for transmission and telecom.</p></div>
+</button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goBiz}}">
+<div class="pht" style="aspect-ratio:3/4;min-height:200px;background-image:url('assets/img/dam-park.jpg')"></div>
+<div style="padding:22px;display:flex;flex-direction:column;gap:10px"><div class="cap" style="color:#0B9D59">04</div><div class="h3">Energy</div><p class="bd" style="font-size:13px">Hydro and renewable power generation through subsidiary ventures.</p></div>
+</button>
+</div>
+</div>
+</section>
+
+<section class="sec" style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;left:-14%;top:-60%;width:820px;height:820px;border:1px solid rgba(255,255,255,.1);border-radius:50%"></div>
+<div class="pad" style="position:relative">
+<div class="split">
+<div>
+<div class="eyb"><span data-l="en">Featured</span><span data-l="id">Unggulan</span></div>
+<h2 class="h2" style="margin-top:14px;color:#fff"><span data-l="en">Projects shaping<br>the nation</span><span data-l="id">Proyek yang membentuk<br>negeri</span></h2>
+<p class="bd" style="margin-top:20px;color:rgba(255,255,255,.7);max-width:26em">From the new capital at Nusantara to toll roads, dams and transmission towers across Sumatra, Java and Kalimantan.</p>
+<div class="row" style="margin-top:28px"><button class="btnw" onClick="{{goProjects}}"><span data-l="en">All 36 Projects</span><span data-l="id">Semua 36 Proyek</span> &rarr;</button></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.14)">
+<button class="mtile" style="border:0;padding:0;background:transparent;text-align:left;display:block" onClick="{{goProject}}">
+<div style="display:flex;align-items:center;gap:20px;padding:20px 0"><div class="pht" style="width:120px;height:78px;flex:none;border:1px solid rgba(255,255,255,.14);background-image:url('assets/img/thumb/dam-aerial.jpg')"></div><div><div class="cap" style="color:#0B9D59">Toll Road &middot; South Sumatra</div><div class="h3" style="color:#fff;margin-top:8px;font-size:19px">Tol Palembang &ndash; Betung Seksi 1 &amp; 2</div></div><div style="margin-left:auto;color:rgba(255,255,255,.5);font-size:20px">&rarr;</div></div>
+</button>
+<button class="mtile" style="border:0;padding:0;background:transparent;text-align:left;display:block" onClick="{{goProject}}">
+<div style="display:flex;align-items:center;gap:20px;padding:20px 0"><div class="pht" style="width:120px;height:78px;flex:none;border:1px solid rgba(255,255,255,.14);background-image:url('assets/img/thumb/ikn-aerial.jpg')"></div><div><div class="cap" style="color:#0B9D59">Building &middot; IKN Nusantara</div><div class="h3" style="color:#fff;margin-top:8px;font-size:19px">Gedung Sekretariat Presiden IKN</div></div><div style="margin-left:auto;color:rgba(255,255,255,.5);font-size:20px">&rarr;</div></div>
+</button>
+<button class="mtile" style="border:0;padding:0;background:transparent;text-align:left;display:block" onClick="{{goProject}}">
+<div style="display:flex;align-items:center;gap:20px;padding:20px 0"><div class="pht" style="width:120px;height:78px;flex:none;border:1px solid rgba(255,255,255,.14);background-image:url('assets/img/thumb/dam-park.jpg')"></div><div><div class="cap" style="color:#0B9D59">Dam &middot; Central Java</div><div class="h3" style="color:#fff;margin-top:8px;font-size:19px">Bendungan Jragung</div></div><div style="margin-left:auto;color:rgba(255,255,255,.5);font-size:20px">&rarr;</div></div>
+</button>
+<button class="mtile" style="border:0;padding:0;background:transparent;text-align:left;display:block" onClick="{{goProject}}">
+<div style="display:flex;align-items:center;gap:20px;padding:20px 0"><div class="pht" style="width:120px;height:78px;flex:none;border:1px solid rgba(255,255,255,.14);background-image:url('assets/img/thumb/eq-crane-crawler.jpg')"></div><div><div class="cap" style="color:#0B9D59">Transmission &middot; Jambi</div><div class="h3" style="color:#fff;margin-top:8px;font-size:19px">Tower 500 KV Jambi</div></div><div style="margin-left:auto;color:rgba(255,255,255,.5);font-size:20px">&rarr;</div></div>
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#fff">
+<div class="eyb"><span data-l="en">Why Choose Us</span><span data-l="id">Mengapa Kami</span></div>
+<h2 class="h2" style="margin-top:14px;max-width:20em"><span data-l="en">Professionalism, governance, and delivery</span><span data-l="id">Profesionalisme, tata kelola, dan penyelesaian</span></h2>
+<div class="g3" style="margin-top:clamp(28px,3.4cqw,50px);border-top:1px solid rgba(0,0,117,.12)">
+<div style="padding-top:26px;border-top:3px solid #000075;margin-top:-2px"><div class="mono" style="font-size:12px;letter-spacing:.14em;color:#BD0004">01</div><div class="h3" style="margin-top:14px">Integrated capability</div><p class="bd" style="margin-top:12px">Investment, construction, equipment and fabrication held in one group, so a project is delivered without hand-off risk.</p></div>
+<div style="padding-top:26px;border-top:3px solid #0B9D59;margin-top:-2px"><div class="mono" style="font-size:12px;letter-spacing:.14em;color:#BD0004">02</div><div class="h3" style="margin-top:14px">Governance first</div><p class="bd" style="margin-top:12px">Certified management systems, an internal audit function and a whistleblowing channel open to every stakeholder.</p></div>
+<div style="padding-top:26px;border-top:3px solid #BD0004;margin-top:-2px"><div class="mono" style="font-size:12px;letter-spacing:.14em;color:#BD0004">03</div><div class="h3" style="margin-top:14px">Proven delivery</div><p class="bd" style="margin-top:12px">Palembang&ndash;Betung Section 2 was completed ahead of target; BOCIMI Section 3 and the IKN packages are progressing on plan.</p></div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#F6F6F4">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+<div><div class="eyb"><span data-l="en">News &amp; Event</span><span data-l="id">Berita &amp; Acara</span></div><h2 class="h2" style="margin-top:14px"><span data-l="en">Latest from WKI</span><span data-l="id">Terbaru dari WKI</span></h2></div>
+<button class="btn2" onClick="{{goNews}}"><span data-l="en">All News</span><span data-l="id">Semua Berita</span> &rarr;</button>
+</div>
+<div class="g3" style="margin-top:clamp(26px,3.2cqw,46px)">
+<button class="card mtile" style="text-align:left;cursor:pointer;padding:0;background:#fff" onClick="{{goArticle}}">
+<div class="pht" style="aspect-ratio:16/10;background-image:url('assets/img/surveyor.jpg')"></div>
+<div style="padding:24px"><div class="cap" style="color:#0B9D59">Corporate &middot; 12 Feb 2026</div><div class="h3" style="margin-top:12px;font-size:18px">Recovery Berbuah Hasil, WKI Raih Laba dan Kontrak Baru 2025</div><div class="cap" style="margin-top:16px">Read more &rarr;</div></div>
+</button>
+<button class="card mtile" style="text-align:left;cursor:pointer;padding:0;background:#fff" onClick="{{goArticle}}">
+<div class="pht" style="aspect-ratio:16/10;background-image:url('assets/img/aggregate-plant.jpg')"></div>
+<div style="padding:24px"><div class="cap" style="color:#0B9D59">Award &middot; 28 Jan 2026</div><div class="h3" style="margin-top:12px;font-size:18px">Dua Prestasi Sekaligus, WKI Raih Penghargaan TOP GRC Awards 2025</div><div class="cap" style="margin-top:16px">Read more &rarr;</div></div>
+</button>
+<button class="card mtile" style="text-align:left;cursor:pointer;padding:0;background:#fff" onClick="{{goArticle}}">
+<div class="pht" style="aspect-ratio:16/10;background-image:url('assets/img/eq-paver-asphalt.jpg')"></div>
+<div style="padding:24px"><div class="cap" style="color:#0B9D59">Project &middot; 09 Jan 2026</div><div class="h3" style="margin-top:12px;font-size:18px">Proyek Palembang&ndash;Betung Seksi 2 Selesai Lebih Cepat dari Target</div><div class="cap" style="margin-top:16px">Read more &rarr;</div></div>
+</button>
+</div>
+</section>
+
+<section class="pad sec" style="background:#fff;border-top:1px solid rgba(0,0,117,.12)">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+<div><div class="eyb"><span data-l="en">Equipment Rental</span><span data-l="id">Penyewaan Alat Berat</span></div><h2 class="h2" style="margin-top:14px;max-width:22em"><span data-l="en">412 units of heavy equipment, available to rent</span><span data-l="id">412 unit alat berat, tersedia untuk disewa</span></h2></div>
+<button class="btn2" onClick="{{goRental}}"><span data-l="en">Browse Fleet</span><span data-l="id">Lihat Armada</span> &rarr;</button>
+</div>
+<div class="g4" style="margin-top:clamp(26px,3cqw,44px);gap:1px;background:rgba(0,0,117,.14)">
+<button class="mtile" style="border:0;background:#fff;text-align:left;padding:clamp(20px,2.2cqw,30px);cursor:pointer;display:block" onClick="{{goRental}}">
+<div class="num" style="font-size:clamp(24px,2.6cqw,38px)">118</div>
+<div class="h3" style="margin-top:12px;font-size:15px">Excavators &amp; dozers</div>
+<div class="cap" style="margin-top:9px;color:#0B9D59">62 available now</div>
+</button>
+<button class="mtile" style="border:0;background:#fff;text-align:left;padding:clamp(20px,2.2cqw,30px);cursor:pointer;display:block" onClick="{{goRental}}">
+<div class="num" style="font-size:clamp(24px,2.6cqw,38px)">146</div>
+<div class="h3" style="margin-top:12px;font-size:15px">Hauling &amp; compaction</div>
+<div class="cap" style="margin-top:9px;color:#0B9D59">71 available now</div>
+</button>
+<button class="mtile" style="border:0;background:#fff;text-align:left;padding:clamp(20px,2.2cqw,30px);cursor:pointer;display:block" onClick="{{goRental}}">
+<div class="num" style="font-size:clamp(24px,2.6cqw,38px)">94</div>
+<div class="h3" style="margin-top:12px;font-size:15px">Lifting &amp; concrete</div>
+<div class="cap" style="margin-top:9px;color:#0B9D59">38 available now</div>
+</button>
+<button class="mtile" style="border:0;background:#fff;text-align:left;padding:clamp(20px,2.2cqw,30px);cursor:pointer;display:block" onClick="{{goRental}}">
+<div class="num" style="font-size:clamp(24px,2.6cqw,38px)">54</div>
+<div class="h3" style="margin-top:12px;font-size:15px">Plant &amp; production</div>
+<div class="cap" style="margin-top:9px;color:#0B9D59">19 available now</div>
+</button>
+</div>
+</section>
+
+<section style="background:#0B9D59;color:#fff" class="sec">
+<div class="pad split" style="align-items:center">
+<div>
+<div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)"><span data-l="en">Sustainability &amp; CSR</span><span data-l="id">Keberlanjutan &amp; CSR</span></div>
+<h2 class="h2" style="margin-top:14px;color:#fff"><span data-l="en">Building with, and for, the communities around us</span><span data-l="id">Membangun bersama masyarakat di sekitar kami</span></h2>
+<div class="row" style="margin-top:28px"><button class="btnw" onClick="{{goNews}}"><span data-l="en">See Our Programmes</span><span data-l="id">Lihat Program Kami</span> &rarr;</button></div>
+</div>
+<div class="g2" style="gap:1px;background:rgba(255,255,255,.28)">
+<div style="background:#0B9D59;padding:26px"><div class="mono" style="font-size:30px;font-weight:700">50<span style="font-size:16px"> MW</span></div><div class="cap" style="color:rgba(255,255,255,.8);margin-top:8px">Hydro capacity in development</div></div>
+<div style="background:#0B9D59;padding:26px"><div class="mono" style="font-size:30px;font-weight:700">12</div><div class="cap" style="color:rgba(255,255,255,.8);margin-top:8px">CSR programmes in 2025</div></div>
+<div style="background:#0B9D59;padding:26px"><div class="mono" style="font-size:30px;font-weight:700">ISO</div><div class="cap" style="color:rgba(255,255,255,.8);margin-top:8px">9001 &middot; 14001 &middot; 45001 certified</div></div>
+<div style="background:#0B9D59;padding:26px"><div class="mono" style="font-size:30px;font-weight:700">0</div><div class="cap" style="color:rgba(255,255,255,.8);margin-top:8px">Fatal incidents target, always</div></div>
+</div>
+</div>
+</section>
+
+<section class="pad" style="background:#fff;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5cqw,80px)">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;border-top:1px solid rgba(0,0,117,.12);border-bottom:1px solid rgba(0,0,117,.12);padding:clamp(28px,3.4cqw,52px) 0">
+<h2 class="h2" style="max-width:20em"><span data-l="en">Looking for a partner on your next infrastructure project?</span><span data-l="id">Mencari mitra untuk proyek infrastruktur Anda?</span></h2>
+<div class="row"><button class="btn" onClick="{{goContact}}"><span data-l="en">Talk to Us</span><span data-l="id">Hubungi Kami</span></button><button class="btn2" onClick="{{goCareer}}"><span data-l="en">Join the Team</span><span data-l="id">Bergabung</span></button></div>
+</div>
+</section>
+</div></div>
+
+<div data-page="about"><div class="pg-label"><span>02</span><span>Introduction</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;right:-6%;top:-70%;width:700px;height:700px;border:1px solid rgba(11,157,89,.35);border-radius:50%"></div>
+<div class="pad" style="position:relative;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5.4cqw,86px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">About &mdash; Introduction</div>
+<h1 class="d2 rv" style="color:#fff;margin-top:18px;max-width:20em"><span data-l="en">Introduction</span><span data-l="id">Pendahuluan</span></h1>
+<span class="rule gx" style="display:block;margin-top:22px"></span>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="split">
+<div>
+<div class="eyb">Who we are</div>
+<h2 class="h2" style="margin-top:16px;max-width:18em">A fast-growing infrastructure and energy company in Indonesia</h2>
+<span class="rule" style="display:block;margin-top:20px"></span>
+</div>
+<div>
+<p class="bd">We invest and operate infrastructure and facilities in key sectors such as power plant, oil and gas, mining, property, transportation, and utility sectors. Since our inception, we have been vastly engaged in some major energy and infrastructure projects.</p>
+<p class="bd" style="margin-top:16px">Through better planning, process, and management, we create facilities that help improve the quality of life of people. Every aspect of our business is characterized by professionalism and high standards of corporate governance.</p>
+<p class="bd" style="margin-top:16px">We collaborate with industry leaders and research institutions to ensure that our projects conform to the industry&rsquo;s best practices. We are committed to delivering excellence in every single project we do.</p>
+</div>
+</div>
+<div class="pht" style="margin-top:clamp(34px,4.2cqw,64px);aspect-ratio:21/9;min-height:220px;background-image:url('assets/img/bridge.jpg')"></div>
+</section>
+<section class="pad sec" style="background:#F6F6F4">
+<div class="eyb">At a glance</div>
+<h2 class="h2" style="margin-top:14px">The company in numbers</h2>
+<div class="g4" style="margin-top:clamp(28px,3.4cqw,48px);gap:1px;background:rgba(0,0,117,.14)">
+<div style="background:#fff;padding:clamp(20px,2.4cqw,32px)"><div class="mono" style="font-size:clamp(26px,3cqw,42px);font-weight:700;color:#000075;letter-spacing:-.03em">2014</div><div class="cap" style="margin-top:10px">Year established</div></div>
+<div style="background:#fff;padding:clamp(20px,2.4cqw,32px)"><div class="mono" style="font-size:clamp(26px,3cqw,42px);font-weight:700;color:#000075;letter-spacing:-.03em">36</div><div class="cap" style="margin-top:10px">Projects delivered &amp; running</div></div>
+<div style="background:#fff;padding:clamp(20px,2.4cqw,32px)"><div class="mono" style="font-size:clamp(26px,3cqw,42px);font-weight:700;color:#000075;letter-spacing:-.03em">04</div><div class="cap" style="margin-top:10px">Business lines</div></div>
+<div style="background:#fff;padding:clamp(20px,2.4cqw,32px)"><div class="mono" style="font-size:clamp(26px,3cqw,42px);font-weight:700;color:#000075;letter-spacing:-.03em">06</div><div class="cap" style="margin-top:10px">Subsidiaries &amp; ventures</div></div>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+<div><div class="eyb">The Group</div><h2 class="h2" style="margin-top:14px">Subsidiaries &amp; joint ventures</h2></div>
+</div>
+<div class="g3" style="margin-top:clamp(26px,3.2cqw,46px)">
+<div class="card"><div class="cap" style="color:#0B9D59">Energy</div><div class="h3" style="margin-top:12px;font-size:18px">PT Waskita Wado Energi</div><p class="bd" style="margin-top:10px;font-size:13.5px">Hydro power plant development, 50 MW, West Java.</p></div>
+<div class="card"><div class="cap" style="color:#0B9D59">Energy</div><div class="h3" style="margin-top:12px;font-size:18px">PT Waskita Sangir Energi</div><p class="bd" style="margin-top:10px;font-size:13.5px">Mini hydro generation, West Sumatra.</p></div>
+<div class="card"><div class="cap" style="color:#0B9D59">Fabrication</div><div class="h3" style="margin-top:12px;font-size:18px">Steel Fabrication Unit</div><p class="bd" style="margin-top:10px;font-size:13.5px">Transmission towers, girders and structural steel.</p></div>
+<div class="card"><div class="cap" style="color:#0B9D59">Equipment</div><div class="h3" style="margin-top:12px;font-size:18px">Heavy Equipment Unit</div><p class="bd" style="margin-top:10px;font-size:13.5px">Fleet rental, operation and maintenance services.</p></div>
+<div class="card"><div class="cap" style="color:#0B9D59">Trading</div><div class="h3" style="margin-top:12px;font-size:18px">Material &amp; Steel Trading</div><p class="bd" style="margin-top:10px;font-size:13.5px">Supply of steel and construction material.</p></div>
+<div class="card"><div class="cap" style="color:#0B9D59">Infrastructure</div><div class="h3" style="margin-top:12px;font-size:18px">Investment &amp; Construction</div><p class="bd" style="margin-top:10px;font-size:13.5px">Toll roads, dams, bridges and buildings.</p></div>
+</div>
+</section>
+<section class="pad sec" style="background:#F6F6F4">
+<div class="split">
+<div><div class="eyb">Accreditation</div><h2 class="h2" style="margin-top:14px">Certifications &amp; awards</h2><p class="bd" style="margin-top:18px;max-width:26em">Management systems audited and certified, with recognition from national governance bodies.</p></div>
+<div>
+<div style="display:flex;flex-direction:column;border-top:1px solid rgba(0,0,117,.14)">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(0,0,117,.1)"><span class="h3" style="font-size:16px">ISO 9001:2015</span><span class="cap">Quality Management</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(0,0,117,.1)"><span class="h3" style="font-size:16px">ISO 14001:2015</span><span class="cap">Environmental Management</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(0,0,117,.1)"><span class="h3" style="font-size:16px">ISO 45001:2018</span><span class="cap">Occupational Health &amp; Safety</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(0,0,117,.1)"><span class="h3" style="font-size:16px">TOP GRC Awards 2025</span><span class="cap">Two recognitions</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0"><span class="h3" style="font-size:16px">SMK3 Certification</span><span class="cap">Safety Management</span></div>
+</div>
+</div>
+</div>
+</section>
+</div></div>
+
+<div data-page="vision"><div class="pg-label"><span>03</span><span>Vision, Mission &amp; Core Values</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;left:-10%;bottom:-120%;width:760px;height:760px;border:1px solid rgba(255,255,255,.12);border-radius:50%"></div>
+<div class="pad" style="position:relative;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5.4cqw,86px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">About &mdash; Vision, Mission &amp; Core Values</div>
+<h1 class="d2 rv" style="color:#fff;margin-top:18px"><span data-l="en">Vision &amp; Mission</span><span data-l="id">Visi &amp; Misi</span></h1>
+<span class="rule gx" style="display:block;margin-top:22px"></span>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="g2" style="align-items:stretch">
+<div style="background:#000075;color:#fff;padding:clamp(26px,3.4cqw,52px);display:flex;flex-direction:column;justify-content:space-between;gap:30px">
+<div class="eyb">Vision</div>
+<div class="d2" style="color:#fff;max-width:16em">To become a trusted, sustainable infrastructure and energy investment company in Indonesia.</div>
+<div class="mono" style="font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.45);text-transform:uppercase">2026 Statement</div>
+</div>
+<div style="background:#F6F6F4;padding:clamp(26px,3.4cqw,52px)">
+<div class="eyb" style="color:#000075">Mission</div>
+<div style="margin-top:26px;display:flex;flex-direction:column;gap:2px">
+<div style="display:flex;gap:18px;padding:18px 0;border-top:1px solid rgba(0,0,117,.14)"><span class="mono" style="color:#BD0004;font-size:12px;font-weight:700;padding-top:3px">01</span><p class="bd" style="color:#26262e">Deliver infrastructure and energy assets that create long-term value for shareholders and the nation.</p></div>
+<div style="display:flex;gap:18px;padding:18px 0;border-top:1px solid rgba(0,0,117,.14)"><span class="mono" style="color:#BD0004;font-size:12px;font-weight:700;padding-top:3px">02</span><p class="bd" style="color:#26262e">Operate with professionalism, safety and the highest standards of corporate governance.</p></div>
+<div style="display:flex;gap:18px;padding:18px 0;border-top:1px solid rgba(0,0,117,.14)"><span class="mono" style="color:#BD0004;font-size:12px;font-weight:700;padding-top:3px">03</span><p class="bd" style="color:#26262e">Grow through collaboration with industry leaders, research institutions and local partners.</p></div>
+<div style="display:flex;gap:18px;padding:18px 0;border-top:1px solid rgba(0,0,117,.14)"><span class="mono" style="color:#BD0004;font-size:12px;font-weight:700;padding-top:3px">04</span><p class="bd" style="color:#26262e">Develop people, and contribute to the communities and environment around every project.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="pad sec" style="background:#F6F6F4">
+<div class="eyb">Core Values</div>
+<h2 class="h2" style="margin-top:14px">AKHLAK</h2>
+<p class="bd" style="margin-top:16px;max-width:34em">The shared values of Indonesian state-owned enterprises, applied to how we plan, build and operate.</p>
+<div class="g3" style="margin-top:clamp(28px,3.4cqw,48px);gap:1px;background:rgba(0,0,117,.14)">
+<div style="background:#fff;padding:clamp(22px,2.6cqw,34px)"><div class="mono" style="color:#0B9D59;font-size:11px;letter-spacing:.14em">01</div><div class="h3" style="margin-top:14px">Amanah</div><p class="bd" style="margin-top:10px;font-size:13.5px">We hold firmly to trust given to us.</p></div>
+<div style="background:#fff;padding:clamp(22px,2.6cqw,34px)"><div class="mono" style="color:#0B9D59;font-size:11px;letter-spacing:.14em">02</div><div class="h3" style="margin-top:14px">Kompeten</div><p class="bd" style="margin-top:10px;font-size:13.5px">We keep learning and developing capability.</p></div>
+<div style="background:#fff;padding:clamp(22px,2.6cqw,34px)"><div class="mono" style="color:#0B9D59;font-size:11px;letter-spacing:.14em">03</div><div class="h3" style="margin-top:14px">Harmonis</div><p class="bd" style="margin-top:10px;font-size:13.5px">We care for one another and respect difference.</p></div>
+<div style="background:#fff;padding:clamp(22px,2.6cqw,34px)"><div class="mono" style="color:#0B9D59;font-size:11px;letter-spacing:.14em">04</div><div class="h3" style="margin-top:14px">Loyal</div><p class="bd" style="margin-top:10px;font-size:13.5px">We are dedicated to the company and the nation.</p></div>
+<div style="background:#fff;padding:clamp(22px,2.6cqw,34px)"><div class="mono" style="color:#0B9D59;font-size:11px;letter-spacing:.14em">05</div><div class="h3" style="margin-top:14px">Adaptif</div><p class="bd" style="margin-top:10px;font-size:13.5px">We keep innovating and moving with change.</p></div>
+<div style="background:#fff;padding:clamp(22px,2.6cqw,34px)"><div class="mono" style="color:#0B9D59;font-size:11px;letter-spacing:.14em">06</div><div class="h3" style="margin-top:14px">Kolaboratif</div><p class="bd" style="margin-top:10px;font-size:13.5px">We build productive partnerships to create value.</p></div>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="split">
+<div><div class="eyb">Corporate Identity</div><h2 class="h2" style="margin-top:14px">The mark</h2><p class="bd" style="margin-top:18px;max-width:26em">The W is carried by two orbits: green for sustainable growth, red for the drive to move forward. Navy holds both, standing for trust, professionalism and stability.</p></div>
+<div style="background:#F6F6F4;padding:clamp(28px,3.4cqw,56px);display:flex;align-items:center;justify-content:center"><img src="assets/logo-wki.png" alt="Waskita Karya Infrastruktur logo" style="width:min(360px,100%);display:block"></div>
+</div>
+</section>
+</div></div>
+
+<div data-page="milestone"><div class="pg-label"><span>04</span><span>Milestone</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;right:-8%;top:-80%;width:720px;height:720px;border:1px solid rgba(11,157,89,.32);border-radius:50%"></div>
+<div class="pad" style="position:relative;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5.4cqw,86px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">About &mdash; Milestone</div>
+<h1 class="d2 rv" style="color:#fff;margin-top:18px"><span data-l="en">Milestone</span><span data-l="id">Tonggak Sejarah</span></h1>
+<span class="rule gx" style="display:block;margin-top:22px"></span>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="eyb">2014 &mdash; 2026</div>
+<h2 class="h2" style="margin-top:14px;max-width:22em">Twelve years from a new subsidiary to an integrated infrastructure group</h2>
+<div style="margin-top:clamp(34px,4.2cqw,64px)">
+<div style="display:flex;gap:clamp(20px,3cqw,48px);align-items:flex-start;padding-bottom:clamp(26px,3cqw,44px)">
+<div style="width:clamp(70px,8cqw,130px);flex:none"><div class="mono" style="font-size:clamp(20px,2.4cqw,34px);font-weight:700;color:#000075;letter-spacing:-.02em">2014</div></div>
+<div style="flex:none;width:2px;background:rgba(0,0,117,.14);align-self:stretch;position:relative"><span style="position:absolute;top:8px;left:-5px;width:12px;height:12px;background:#000075;border-radius:50%"></span></div>
+<div style="flex:1"><div class="h3">Company established</div><p class="bd" style="margin-top:10px;max-width:40em">PT Waskita Karya Infrastruktur is founded as a subsidiary focused on infrastructure investment and construction.</p></div>
+</div>
+<div style="display:flex;gap:clamp(20px,3cqw,48px);align-items:flex-start;padding-bottom:clamp(26px,3cqw,44px)">
+<div style="width:clamp(70px,8cqw,130px);flex:none"><div class="mono" style="font-size:clamp(20px,2.4cqw,34px);font-weight:700;color:#000075;letter-spacing:-.02em">2017</div></div>
+<div style="flex:none;width:2px;background:rgba(0,0,117,.14);align-self:stretch;position:relative"><span style="position:absolute;top:8px;left:-5px;width:12px;height:12px;background:#000075;border-radius:50%"></span></div>
+<div style="flex:1"><div class="h3">Heavy equipment &amp; fabrication added</div><p class="bd" style="margin-top:10px;max-width:40em">Equipment rental and steel fabrication units begin operating, broadening the group beyond construction.</p></div>
+</div>
+<div style="display:flex;gap:clamp(20px,3cqw,48px);align-items:flex-start;padding-bottom:clamp(26px,3cqw,44px)">
+<div style="width:clamp(70px,8cqw,130px);flex:none"><div class="mono" style="font-size:clamp(20px,2.4cqw,34px);font-weight:700;color:#000075;letter-spacing:-.02em">2020</div></div>
+<div style="flex:none;width:2px;background:rgba(0,0,117,.14);align-self:stretch;position:relative"><span style="position:absolute;top:8px;left:-5px;width:12px;height:12px;background:#000075;border-radius:50%"></span></div>
+<div style="flex:1"><div class="h3">Energy ventures formed</div><p class="bd" style="margin-top:10px;max-width:40em">Waskita Wado Energi and Waskita Sangir Energi are established to develop hydro power generation.</p></div>
+</div>
+<div style="display:flex;gap:clamp(20px,3cqw,48px);align-items:flex-start;padding-bottom:clamp(26px,3cqw,44px)">
+<div style="width:clamp(70px,8cqw,130px);flex:none"><div class="mono" style="font-size:clamp(20px,2.4cqw,34px);font-weight:700;color:#000075;letter-spacing:-.02em">2023</div></div>
+<div style="flex:none;width:2px;background:rgba(0,0,117,.14);align-self:stretch;position:relative"><span style="position:absolute;top:8px;left:-5px;width:12px;height:12px;background:#0B9D59;border-radius:50%"></span></div>
+<div style="flex:1"><div class="h3">IKN Nusantara portfolio</div><p class="bd" style="margin-top:10px;max-width:40em">Work begins on roads, government buildings and housing in the new capital, including the Presidential Secretariat.</p></div>
+</div>
+<div style="display:flex;gap:clamp(20px,3cqw,48px);align-items:flex-start;padding-bottom:clamp(26px,3cqw,44px)">
+<div style="width:clamp(70px,8cqw,130px);flex:none"><div class="mono" style="font-size:clamp(20px,2.4cqw,34px);font-weight:700;color:#000075;letter-spacing:-.02em">2025</div></div>
+<div style="flex:none;width:2px;background:rgba(0,0,117,.14);align-self:stretch;position:relative"><span style="position:absolute;top:8px;left:-5px;width:12px;height:12px;background:#0B9D59;border-radius:50%"></span></div>
+<div style="flex:1"><div class="h3">Recovery and new contracts</div><p class="bd" style="margin-top:10px;max-width:40em">The company returns to profit, wins new contracts, and receives two TOP GRC Awards for governance.</p></div>
+</div>
+<div style="display:flex;gap:clamp(20px,3cqw,48px);align-items:flex-start">
+<div style="width:clamp(70px,8cqw,130px);flex:none"><div class="mono" style="font-size:clamp(20px,2.4cqw,34px);font-weight:700;color:#BD0004;letter-spacing:-.02em">2026</div></div>
+<div style="flex:none;width:2px;background:linear-gradient(#BD0004,transparent);align-self:stretch;position:relative"><span style="position:absolute;top:8px;left:-5px;width:12px;height:12px;background:#BD0004;border-radius:50%"></span></div>
+<div style="flex:1"><div class="h3" style="color:#BD0004">Now</div><p class="bd" style="margin-top:10px;max-width:40em">Palembang&ndash;Betung Section 2 delivered ahead of target; 50 MW of hydro capacity moving towards operation.</p></div>
+</div>
+</div>
+</section>
+</div></div>
+
+<div data-page="bod"><div class="pg-label"><span>05</span><span>Board of Directors</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;left:40%;top:-90%;width:780px;height:780px;border:1px solid rgba(255,255,255,.12);border-radius:50%"></div>
+<div class="pad" style="position:relative;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5.4cqw,86px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">About &mdash; Leadership</div>
+<h1 class="d2 rv" style="color:#fff;margin-top:18px"><span data-l="en">Board of Directors</span><span data-l="id">Dewan Direksi</span></h1>
+<span class="rule gx" style="display:block;margin-top:22px"></span>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="row" style="gap:10px;margin-bottom:clamp(26px,3cqw,44px)">
+<button class="tab" style="background:#000075;color:#fff;border-color:#000075">Board of Directors</button>
+<button class="tab">Board of Commissioners</button>
+<button class="tab">Corporate Secretariat</button>
+<button class="tab">Internal Audit</button>
+</div>
+<div class="g3">
+<div class="mtile" style="background:#F6F6F4">
+<div class="pht" style="aspect-ratio:4/5;background-image:url('assets/img/portrait-bambang.jpg');background-position:center top"></div>
+<div style="padding:24px"><div class="cap" style="color:#0B9D59">President Director</div><div class="h3" style="margin-top:10px">Bambang Dwi Wijayanto</div><p class="bd" style="margin-top:12px;font-size:13.5px">Biography and appointment date to be supplied.</p></div>
+</div>
+<div class="mtile" style="background:#F6F6F4">
+<div class="pht" style="aspect-ratio:4/5;background-image:url('assets/img/portrait-ian.jpg');background-position:center top"></div>
+<div style="padding:24px"><div class="cap" style="color:#0B9D59">Director of Finance</div><div class="h3" style="margin-top:10px">Ian Trevianto H.H</div><p class="bd" style="margin-top:12px;font-size:13.5px">Biography and appointment date to be supplied.</p></div>
+</div>
+<div class="mtile" style="background:#F6F6F4">
+<div class="pht" style="aspect-ratio:4/5;background-image:url('assets/img/portrait-poerwanto.jpg');background-position:center top"></div>
+<div style="padding:24px"><div class="cap" style="color:#0B9D59">Director of Operations</div><div class="h3" style="margin-top:10px">Poerwanto</div><p class="bd" style="margin-top:12px;font-size:13.5px">Biography and appointment date to be supplied.</p></div>
+</div>
+</div>
+<p class="cap" style="margin-top:20px">Portraits from the current company records. Biographies and appointment dates to be supplied by Corporate Secretariat.</p>
+</section>
+<section class="pad sec" style="background:#F6F6F4">
+<div class="eyb">Structure</div>
+<h2 class="h2" style="margin-top:14px">Organizational structure</h2>
+<p class="bd" style="margin-top:16px;max-width:34em">Replacing the current flat image with a structure that can be read and navigated on any screen.</p>
+<div style="margin-top:clamp(28px,3.4cqw,48px);display:flex;flex-direction:column;align-items:center;gap:0">
+<div style="background:#000075;color:#fff;padding:16px 28px;text-align:center"><div class="mono" style="font-size:10.5px;letter-spacing:.14em;color:rgba(255,255,255,.6)">GMS</div><div class="h3" style="color:#fff;font-size:16px;margin-top:6px">General Meeting of Shareholders</div></div>
+<div style="width:2px;height:26px;background:rgba(0,0,117,.2)"></div>
+<div class="g2" style="width:100%;max-width:760px">
+<div style="background:#fff;border:1px solid rgba(0,0,117,.16);padding:16px 22px;text-align:center"><div class="h3" style="font-size:15px">Board of Commissioners</div></div>
+<div style="background:#fff;border:1px solid rgba(0,0,117,.16);padding:16px 22px;text-align:center"><div class="h3" style="font-size:15px">Board of Directors</div></div>
+</div>
+<div style="width:2px;height:26px;background:rgba(0,0,117,.2)"></div>
+<div class="g4" style="width:100%">
+<div style="background:#fff;border:1px solid rgba(0,0,117,.16);border-top:3px solid #0B9D59;padding:18px;text-align:center"><div class="h3" style="font-size:14px">Corporate Secretariat</div></div>
+<div style="background:#fff;border:1px solid rgba(0,0,117,.16);border-top:3px solid #0B9D59;padding:18px;text-align:center"><div class="h3" style="font-size:14px">Internal Audit</div></div>
+<div style="background:#fff;border:1px solid rgba(0,0,117,.16);border-top:3px solid #0B9D59;padding:18px;text-align:center"><div class="h3" style="font-size:14px">Operations &amp; Projects</div></div>
+<div style="background:#fff;border:1px solid rgba(0,0,117,.16);border-top:3px solid #0B9D59;padding:18px;text-align:center"><div class="h3" style="font-size:14px">Finance &amp; HC</div></div>
+</div>
+</div>
+</section>
+</div></div>
+
+<div data-page="biz"><div class="pg-label"><span>06</span><span>Business Lines</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;right:-6%;top:-70%;width:700px;height:700px;border:1px solid rgba(11,157,89,.35);border-radius:50%"></div>
+<div class="pad" style="position:relative;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5.4cqw,86px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">Business</div>
+<h1 class="d2 rv" style="color:#fff;margin-top:18px"><span data-l="en">Business Lines</span><span data-l="id">Lini Bisnis</span></h1>
+<p class="lead rv" style="color:rgba(255,255,255,.75);margin-top:22px;max-width:30em;animation-delay:.12s">Four capabilities held in one group, so a project can be funded, built, equipped and fabricated without leaving the company.</p>
+</div>
+</section>
+<section style="background:#fff">
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block;width:100%;border-bottom:1px solid rgba(0,0,117,.12)" onClick="{{goBizDetail}}">
+<div class="pad split" style="padding-top:clamp(34px,4cqw,64px);padding-bottom:clamp(34px,4cqw,64px);align-items:center">
+<div><div class="mono" style="font-size:11px;letter-spacing:.16em;color:#BD0004">01</div><h2 class="h2" style="margin-top:14px">Infrastructure</h2><p class="bd" style="margin-top:16px;max-width:30em">Investment and construction of toll roads, dams, bridges, buildings and housing &mdash; including the group&rsquo;s packages in IKN Nusantara.</p><div class="cap" style="margin-top:22px;color:#0B9D59">View business line &rarr;</div></div>
+<div class="pht" style="aspect-ratio:16/10;background-image:url('assets/img/eq-paver-concrete.jpg')"></div>
+</div>
+</button>
+<button class="mtile" style="border:0;padding:0;background:#F6F6F4;text-align:left;display:block;width:100%;border-bottom:1px solid rgba(0,0,117,.12)" onClick="{{goRental}}">
+<div class="pad split" style="padding-top:clamp(34px,4cqw,64px);padding-bottom:clamp(34px,4cqw,64px);align-items:center">
+<div class="pht" style="aspect-ratio:16/10;background-image:url('assets/img/eq-dumptruck.jpg')"></div>
+<div><div class="mono" style="font-size:11px;letter-spacing:.16em;color:#BD0004">02</div><h2 class="h2" style="margin-top:14px">Heavy Equipment</h2><p class="bd" style="margin-top:16px;max-width:30em">Rental, operation and maintenance of heavy duty equipment, supported by workshops and certified operators.</p><div class="cap" style="margin-top:22px;color:#0B9D59">View business line &rarr;</div></div>
+</div>
+</button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block;width:100%;border-bottom:1px solid rgba(0,0,117,.12)" onClick="{{goBizDetail}}">
+<div class="pad split" style="padding-top:clamp(34px,4cqw,64px);padding-bottom:clamp(34px,4cqw,64px);align-items:center">
+<div><div class="mono" style="font-size:11px;letter-spacing:.16em;color:#BD0004">03</div><h2 class="h2" style="margin-top:14px">Steel Fabrication</h2><p class="bd" style="margin-top:16px;max-width:30em">Transmission towers, telecommunication towers, girders and structural steel fabricated to national and client standards.</p><div class="cap" style="margin-top:22px;color:#0B9D59">View business line &rarr;</div></div>
+<div class="pht" style="aspect-ratio:16/10;background-image:url('assets/img/eq-barbender.jpg')"></div>
+</div>
+</button>
+<button class="mtile" style="border:0;padding:0;background:#0B9D59;text-align:left;display:block;width:100%" onClick="{{goBizDetail}}">
+<div class="pad split" style="padding-top:clamp(34px,4cqw,64px);padding-bottom:clamp(34px,4cqw,64px);align-items:center">
+<div class="pht" style="aspect-ratio:16/10;background-image:url('assets/img/dam-park.jpg')"></div>
+<div><div class="mono" style="font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.7)">04</div><h2 class="h2" style="margin-top:14px;color:#fff">Energy</h2><p class="bd" style="margin-top:16px;max-width:30em;color:rgba(255,255,255,.85)">Hydro and renewable generation through Waskita Wado Energi and Waskita Sangir Energi, with 50 MW moving towards operation.</p><div class="cap" style="margin-top:22px;color:#fff">View business line &rarr;</div></div>
+</div>
+</button>
+</section>
+</div></div>
+
+<div data-page="bizdetail"><div class="pg-label"><span>07</span><span>Business Line &mdash; Infrastructure</span></div><div class="pgi">
+<section style="position:relative;background:#000075;overflow:hidden">
+<div class="pht" style="position:absolute;inset:0;background-image:url('assets/img/bridge.jpg')"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,117,.95),rgba(0,0,117,.55))"></div>
+<div class="pad" style="position:relative;padding-top:clamp(50px,6cqw,110px);padding-bottom:clamp(50px,6cqw,110px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)">Business &mdash; 01 / 04</div>
+<h1 class="d1 rv" style="color:#fff;margin-top:18px;max-width:14em;font-size:clamp(34px,5.2cqw,74px)">Infrastructure</h1>
+<p class="lead rv" style="color:rgba(255,255,255,.8);margin-top:24px;max-width:30em;animation-delay:.14s">Investment and construction across toll roads, dams, bridges, government buildings and housing.</p>
+<div class="row" style="margin-top:32px;gap:12px"><button class="btnw" onClick="{{goProjects}}">See Projects &rarr;</button><button class="btn" style="background:transparent;border:1px solid rgba(255,255,255,.4)" onClick="{{goContact}}">Request Capability Statement</button></div>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="split">
+<div><div class="eyb">Scope</div><h2 class="h2" style="margin-top:14px">What we deliver</h2><span class="rule" style="display:block;margin-top:20px"></span></div>
+<div class="g2" style="gap:1px;background:rgba(0,0,117,.12)">
+<div style="background:#fff;padding:24px"><div class="h3" style="font-size:16px">Toll roads</div><p class="bd" style="margin-top:10px;font-size:13.5px">Earthworks, pavement, structures, gantries and toll gates.</p></div>
+<div style="background:#fff;padding:24px"><div class="h3" style="font-size:16px">Dams &amp; water</div><p class="bd" style="margin-top:10px;font-size:13.5px">Embankment dams, spillways and irrigation structures.</p></div>
+<div style="background:#fff;padding:24px"><div class="h3" style="font-size:16px">Buildings</div><p class="bd" style="margin-top:10px;font-size:13.5px">Government offices, housing and mixed-use developments.</p></div>
+<div style="background:#fff;padding:24px"><div class="h3" style="font-size:16px">Bridges &amp; flyovers</div><p class="bd" style="margin-top:10px;font-size:13.5px">Reconstruction, girder erection and flyover packages.</p></div>
+</div>
+</div>
+</section>
+<section class="pad sec" style="background:#000075;color:#fff">
+<div class="g4" style="gap:1px;background:rgba(255,255,255,.16)">
+<div style="background:#000075;padding:clamp(20px,2.4cqw,32px)"><div class="mono" style="font-size:clamp(26px,3cqw,42px);font-weight:700;letter-spacing:-.03em">23</div><div class="cap" style="color:rgba(255,255,255,.55);margin-top:10px">Road &amp; toll packages</div></div>
+<div style="background:#000075;padding:clamp(20px,2.4cqw,32px)"><div class="mono" style="font-size:clamp(26px,3cqw,42px);font-weight:700;letter-spacing:-.03em">04</div><div class="cap" style="color:rgba(255,255,255,.55);margin-top:10px">Dams delivered</div></div>
+<div style="background:#000075;padding:clamp(20px,2.4cqw,32px)"><div class="mono" style="font-size:clamp(26px,3cqw,42px);font-weight:700;letter-spacing:-.03em">07</div><div class="cap" style="color:rgba(255,255,255,.55);margin-top:10px">IKN Nusantara packages</div></div>
+<div style="background:#000075;padding:clamp(20px,2.4cqw,32px)"><div class="mono" style="font-size:clamp(26px,3cqw,42px);font-weight:700;letter-spacing:-.03em">ISO</div><div class="cap" style="color:rgba(255,255,255,.55);margin-top:10px">9001 / 14001 / 45001</div></div>
+</div>
+</section>
+<section class="pad sec" style="background:#F6F6F4">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+<div><div class="eyb">Selected work</div><h2 class="h2" style="margin-top:14px">Recent infrastructure projects</h2></div>
+<button class="btn2" onClick="{{goProjects}}">All Projects &rarr;</button>
+</div>
+<div class="g3" style="margin-top:clamp(26px,3.2cqw,46px)">
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:20px"><div class="cap" style="color:#0B9D59">Toll Road &middot; South Sumatra</div><div class="h3" style="margin-top:9px;font-size:17px">Tol Palembang &ndash; Betung Seksi 1 &amp; 2</div></div></button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:20px"><div class="cap" style="color:#0B9D59">Dam &middot; Central Java</div><div class="h3" style="margin-top:9px;font-size:17px">Bendungan Jragung</div></div></button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:20px"><div class="cap" style="color:#0B9D59">Building &middot; IKN Nusantara</div><div class="h3" style="margin-top:9px;font-size:17px">Gedung Sekretariat Presiden IKN</div></div></button>
+</div>
+</section>
+</div></div>
+
+<div data-page="projects"><div class="pg-label"><span>08</span><span>Projects Index</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;left:35%;top:-90%;width:760px;height:760px;border:1px solid rgba(11,157,89,.3);border-radius:50%"></div>
+<div class="pad" style="position:relative;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5.4cqw,86px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">Projects</div>
+<h1 class="d2 rv" style="color:#fff;margin-top:18px"><span data-l="en">36 Projects</span><span data-l="id">36 Proyek</span></h1>
+<p class="lead rv" style="color:rgba(255,255,255,.75);margin-top:20px;max-width:30em;animation-delay:.12s">Filter by type. Every project opens to a detail page with scope, location, period and gallery.</p>
+</div>
+</section>
+<section style="background:#04042B;position:relative">
+<div class="mapsplit">
+<sc-if value="{{showProjectMap}}" hint-placeholder-val="{{true}}"><iframe class="mapw" src="wki-asset-map.html?layer=projects" title="National project map"></iframe></sc-if>
+<div style="background:#000075;color:#fff;padding:clamp(20px,2.4cqw,34px);display:flex;flex-direction:column;gap:20px">
+<div>
+<div class="eyb" style="display:flex;align-items:center;gap:8px"><span class="gdot live"></span>Live portfolio</div>
+<h2 class="h3" style="color:#fff;margin-top:12px;font-size:clamp(15px,1.4cqw,20px)">Where we are building</h2>
+<p class="bd" style="color:rgba(255,255,255,.65);margin-top:10px;font-size:12.5px">Hover a marker for scope and progress. Green markers are sites currently in execution.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span class="cap" style="color:rgba(255,255,255,.62)">Sumatra</span><span class="num" style="color:#fff;font-size:15px">13</span></div>
+<div class="barw" style="margin-top:7px"><i style="width:36%"></i></div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span class="cap" style="color:rgba(255,255,255,.62)">Java &amp; Jakarta</span><span class="num" style="color:#fff;font-size:15px">11</span></div>
+<div class="barw" style="margin-top:7px"><i style="width:31%"></i></div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span class="cap" style="color:rgba(255,255,255,.62)">Kalimantan &middot; IKN</span><span class="num" style="color:#fff;font-size:15px">07</span></div>
+<div class="barw" style="margin-top:7px"><i style="width:19%"></i></div>
+</div>
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span class="cap" style="color:rgba(255,255,255,.62)">Sulawesi &amp; other</span><span class="num" style="color:#fff;font-size:15px">05</span></div>
+<div class="barw" style="margin-top:7px"><i style="width:14%"></i></div>
+</div>
+</div>
+<div style="margin-top:auto;border-top:1px solid rgba(255,255,255,.18);padding-top:18px;display:flex;gap:26px;flex-wrap:wrap">
+<div><div class="num" style="color:#fff;font-size:clamp(20px,2cqw,28px)">21</div><div class="cap" style="color:rgba(255,255,255,.55);margin-top:5px">Delivered</div></div>
+<div><div class="num" style="color:#0B9D59;font-size:clamp(20px,2cqw,28px)">15</div><div class="cap" style="color:rgba(255,255,255,.55);margin-top:5px">In progress</div></div>
+<div><div class="num" style="color:#fff;font-size:clamp(20px,2cqw,28px)">12</div><div class="cap" style="color:rgba(255,255,255,.55);margin-top:5px">Provinces</div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="pad" style="background:#fff;position:relative;z-index:10;padding-top:26px;padding-bottom:26px;border-bottom:1px solid rgba(0,0,117,.12)">
+<div class="row" style="gap:9px">
+<button class="chp chp-all" onClick="{{fAll}}">All 36</button>
+<button class="chp chp-toll" onClick="{{fToll}}">Toll Roads 16</button>
+<button class="chp chp-ikn" onClick="{{fIkn}}">IKN Nusantara 6</button>
+<button class="chp chp-dam" onClick="{{fDam}}">Dams &amp; Water 5</button>
+<button class="chp chp-bld" onClick="{{fBld}}">Buildings &amp; Civil 3</button>
+<button class="chp chp-twr" onClick="{{fTwr}}">Towers 6</button>
+</div>
+</section>
+<section class="pad sec" style="background:#fff;padding-top:clamp(30px,3.4cqw,50px)">
+<div class="g4">
+<button class="mtile card" data-cat="ikn" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/ikn-aerial.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">IKN &middot; East Kalimantan</div><div class="h3" style="margin-top:9px;font-size:15.5px">Jalan Lingkar Sepaku Segmen 4</div></div></button>
+<button class="mtile card" data-cat="ikn" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/ikn-aerial.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">IKN &middot; East Kalimantan</div><div class="h3" style="margin-top:9px;font-size:15.5px">Jalan Feeder (Distrik) Kawasan IKN KIPP</div></div></button>
+<button class="mtile card" data-cat="ikn" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/ikn-aerial.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">IKN &middot; East Kalimantan</div><div class="h3" style="margin-top:9px;font-size:15.5px">Jalan Seksi 6C-1 Sumbu Kebangsaan Timur KIPP</div></div></button>
+<button class="mtile card" data-cat="ikn" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/ikn-aerial.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">IKN &middot; Building</div><div class="h3" style="margin-top:9px;font-size:15.5px">Gedung dan Kawasan Kantor Kementerian Koordinator 3</div></div></button>
+<button class="mtile card" data-cat="ikn" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/ikn-aerial.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">IKN &middot; Housing</div><div class="h3" style="margin-top:9px;font-size:15.5px">Rusun ASN 3</div></div></button>
+<button class="mtile card" data-cat="ikn" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/ikn-aerial.jpg')"></div>><div style="padding:18px"><div class="cap" style="color:#0B9D59">IKN &middot; Building</div><div class="h3" style="margin-top:9px;font-size:15.5px">Gedung Sekretariat Presiden IKN</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/ikn-aerial.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; IKN</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol IKN 5A</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; Jambi</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Bayung Lencir &ndash; Tempino Seksi 1</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/eq-paver-concrete.jpg')"></div>><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; South Sumatra</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Palembang &ndash; Betung Seksi 1 &amp; 2</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; Sumatra</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol KAPB</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; East Java</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Pasuruan &ndash; Probolinggo Seksi 4</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Road &middot; South Java</div><div class="h3" style="margin-top:9px;font-size:15.5px">JLS Lot 2</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Road &middot; South Java</div><div class="h3" style="margin-top:9px;font-size:15.5px">JLS Lot 6</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; East Java</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol KLBM</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/eq-paver-asphalt.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; West Java</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Cisumdawu</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; Jakarta</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Cibitung &ndash; Cilincing</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; North Sumatra</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Tebing Tinggi &ndash; Parapat</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; North Sumatra</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Kuala Tanjung &ndash; Indrapura</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; West Java</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Cimanggis &ndash; Cibitung</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/eq-paver-asphalt.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; West Java</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Bocimi</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; Jakarta</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tol Becakayu Seksi 2A</div></div></button>
+<button class="mtile card" data-cat="toll" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:4/3"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Toll Road &middot; Jakarta</div><div class="h3" style="margin-top:9px;font-size:15.5px">Gerbang Tol Becakayu 2A</div></div></button>
+<button class="mtile card" data-cat="bld" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/bridge.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Flyover &middot; Palembang</div><div class="h3" style="margin-top:9px;font-size:15.5px">FO Sekip Ujung</div></div></button>
+<button class="mtile card" data-cat="bld" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/bridge.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Bridge &middot; Central Sulawesi</div><div class="h3" style="margin-top:9px;font-size:15.5px">Rekonstruksi Jembatan 4 Palu</div></div></button>
+<button class="mtile card" data-cat="bld" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/aggregate-plant.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Plant &middot; Banten</div><div class="h3" style="margin-top:9px;font-size:15.5px">Stone Crusher &ndash; Bojonegara</div></div></button>
+<button class="mtile card" data-cat="dam" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/dam-aerial.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Dam &middot; Aceh</div><div class="h3" style="margin-top:9px;font-size:15.5px">Bendungan Rukoh</div></div></button>
+<button class="mtile card" data-cat="dam" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/dam-park.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Dam &middot; Lampung</div><div class="h3" style="margin-top:9px;font-size:15.5px">Bendungan Way Sekampung</div></div></button>
+<button class="mtile card" data-cat="dam" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/dam-aerial.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Dam &middot; Central Java</div><div class="h3" style="margin-top:9px;font-size:15.5px">Bendungan Jlantah</div></div></button>
+<button class="mtile card" data-cat="dam" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/dam-park.jpg')"></div>><div style="padding:18px"><div class="cap" style="color:#0B9D59">Dam &middot; Central Java</div><div class="h3" style="margin-top:9px;font-size:15.5px">Bendungan Jragung</div></div></button>
+<button class="mtile card" data-cat="dam" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/dam-park.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Energy &middot; West Sumatra</div><div class="h3" style="margin-top:9px;font-size:15.5px">PLTMH Sangir</div></div></button>
+<button class="mtile card" data-cat="twr" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/eq-crane-truck.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Fabrication</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tower Crane</div></div></button>
+<button class="mtile card" data-cat="twr" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/eq-drill.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Telecom Tower</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tower Telekomunikasi 5G CMI 186</div></div></button>
+<button class="mtile card" data-cat="twr" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/eq-crane-crawler.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Transmission &middot; South Sumatra</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tower 500 KV Sumatera Selatan Paket 3</div></div></button>
+<button class="mtile card" data-cat="twr" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/eq-crane-crawler.jpg')"></div>><div style="padding:18px"><div class="cap" style="color:#0B9D59">Transmission &middot; Jambi</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tower 500 KV Jambi</div></div></button>
+<button class="mtile card" data-cat="twr" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/eq-crane-crawler.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Fabrication</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tower Guyed Mast</div></div></button>
+<button class="mtile card" data-cat="twr" style="padding:0;text-align:left;cursor:pointer" onClick="{{goProject}}"><div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/thumb/eq-crane-truck.jpg')"></div><div style="padding:18px"><div class="cap" style="color:#0B9D59">Transmission &middot; East Kalimantan</div><div class="h3" style="margin-top:9px;font-size:15.5px">Tower 150 KV Balikpapan</div></div></button>
+</div>
+</section>
+</div></div>
+
+<div data-page="project"><div class="pg-label"><span>09</span><span>Project Detail</span></div><div class="pgi">
+<section style="position:relative;background:#000075;overflow:hidden">
+<div class="pht" style="position:absolute;inset:0;background-image:url('assets/img/ikn-aerial.jpg')"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,117,.96) 6%,rgba(0,0,117,.45) 70%,rgba(0,0,117,.6) 100%)"></div>
+<div class="pad" style="position:relative;padding-top:clamp(60px,8cqw,150px);padding-bottom:clamp(36px,4.4cqw,66px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)">Projects &mdash; Toll Roads</div>
+<h1 class="d1 rv" style="color:#fff;margin-top:18px;max-width:16em;font-size:clamp(32px,5cqw,70px)">Tol Palembang &ndash; Betung Seksi 1 &amp; 2</h1>
+<div class="row rv" style="margin-top:26px;gap:10px;animation-delay:.15s">
+<span class="mono" style="background:#0B9D59;color:#fff;font-size:11px;letter-spacing:.1em;padding:7px 13px;text-transform:uppercase">Completed ahead of target</span>
+<span class="mono" style="border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);font-size:11px;letter-spacing:.1em;padding:7px 13px;text-transform:uppercase">South Sumatra</span>
+</div>
+</div>
+</section>
+<section class="pad" style="background:#fff;padding-top:0;padding-bottom:0">
+<div class="g4" style="gap:1px;background:rgba(0,0,117,.12);transform:translateY(-1px)">
+<div style="background:#fff;padding:clamp(20px,2.2cqw,30px)"><div class="cap">Client</div><div class="h3" style="margin-top:10px;font-size:16px">PT Waskita Sriwijaya Tol</div></div>
+<div style="background:#fff;padding:clamp(20px,2.2cqw,30px)"><div class="cap">Scope</div><div class="h3" style="margin-top:10px;font-size:16px">Earthworks, pavement, structures</div></div>
+<div style="background:#fff;padding:clamp(20px,2.2cqw,30px)"><div class="cap">Period</div><div class="h3" style="margin-top:10px;font-size:16px">2022 &ndash; 2025</div></div>
+<div style="background:#fff;padding:clamp(20px,2.2cqw,30px)"><div class="cap">Status</div><div class="h3" style="margin-top:10px;font-size:16px;color:#0B9D59">Delivered</div></div>
+</div>
+</section>
+<section class="pad" style="background:#F6F6F4;padding-top:clamp(28px,3.2cqw,46px);padding-bottom:clamp(28px,3.2cqw,46px)">
+<div class="g4" style="gap:clamp(18px,2cqw,32px)">
+<div><div class="cap">Length</div><div class="num" style="font-size:clamp(22px,2.2cqw,32px);margin-top:8px">69.19<span style="font-size:14px;letter-spacing:0"> km</span></div></div>
+<div><div class="cap">Lanes</div><div class="num" style="font-size:clamp(22px,2.2cqw,32px);margin-top:8px">2<span style="font-size:14px;letter-spacing:0"> &times; 2</span></div></div>
+<div><div class="cap">Structures</div><div class="num" style="font-size:clamp(22px,2.2cqw,32px);margin-top:8px">37</div></div>
+<div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span class="cap">Physical progress</span><span class="num" style="font-size:15px;color:#0B9D59">100%</span></div>
+<div class="bar" style="margin-top:12px"><i style="width:100%;background:#0B9D59"></i></div>
+<div class="cap" style="margin-top:8px">Handover confirmed 2025</div>
+</div>
+</div>
+<div style="margin-top:clamp(26px,3cqw,42px);border-top:1px solid rgba(0,0,117,.14);padding-top:22px">
+<div class="cap" style="margin-bottom:16px">Milestones</div>
+<div style="display:flex;flex-direction:column;gap:11px">
+<div style="display:grid;grid-template-columns:minmax(120px,1.1fr) 3.2fr;gap:16px;align-items:center">
+<span class="bd" style="font-size:12.5px;color:#000075;font-weight:600">Land &amp; earthworks</span>
+<span style="height:12px;background:rgba(0,0,117,.08);position:relative"><i style="position:absolute;left:0;width:34%;top:0;bottom:0;background:#000075;display:block"></i></span>
+</div>
+<div style="display:grid;grid-template-columns:minmax(120px,1.1fr) 3.2fr;gap:16px;align-items:center">
+<span class="bd" style="font-size:12.5px;color:#000075;font-weight:600">Structures &amp; bridges</span>
+<span style="height:12px;background:rgba(0,0,117,.08);position:relative"><i style="position:absolute;left:22%;width:40%;top:0;bottom:0;background:#000075;display:block"></i></span>
+</div>
+<div style="display:grid;grid-template-columns:minmax(120px,1.1fr) 3.2fr;gap:16px;align-items:center">
+<span class="bd" style="font-size:12.5px;color:#000075;font-weight:600">Pavement</span>
+<span style="height:12px;background:rgba(0,0,117,.08);position:relative"><i style="position:absolute;left:48%;width:34%;top:0;bottom:0;background:#0B9D59;display:block"></i></span>
+</div>
+<div style="display:grid;grid-template-columns:minmax(120px,1.1fr) 3.2fr;gap:16px;align-items:center">
+<span class="bd" style="font-size:12.5px;color:#000075;font-weight:600">Toll facilities &amp; handover</span>
+<span style="height:12px;background:rgba(0,0,117,.08);position:relative"><i style="position:absolute;left:76%;width:24%;top:0;bottom:0;background:#BD0004;display:block"></i></span>
+</div>
+<div style="display:grid;grid-template-columns:minmax(120px,1.1fr) 3.2fr;gap:16px">
+<span></span>
+<span style="display:flex;justify-content:space-between"><span class="cap">2022</span><span class="cap">2023</span><span class="cap">2024</span><span class="cap">2025</span></span>
+</div>
+</div>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="split">
+<div>
+<div class="eyb">Overview</div>
+<h2 class="h2" style="margin-top:14px;max-width:18em">Delivered ahead of the contracted target</h2>
+<p class="bd" style="margin-top:20px">Sections 1 and 2 of the Palembang&ndash;Betung toll road form part of the Trans-Sumatra corridor, connecting the provincial capital to the Betung junction and shortening travel time across South Sumatra.</p>
+<p class="bd" style="margin-top:16px">The package covered earthworks, rigid and flexible pavement, drainage, bridges and overpasses, along with toll facilities. Work was completed ahead of the contracted target, with handover confirmed in 2025.</p>
+<div style="margin-top:30px">
+<div class="dl"><span class="h3" style="font-size:15px">Project fact sheet (PDF)</span><span class="cap" style="color:#BD0004">Download</span></div>
+<div class="dl"><span class="h3" style="font-size:15px">Handover press release</span><span class="cap" style="color:#BD0004">Read</span></div>
+</div>
+</div>
+<div>
+<div class="pht" style="aspect-ratio:4/3;background-image:url('assets/img/ikn-aerial.jpg')"></div>
+<div class="g2" style="margin-top:1px;gap:1px">
+<div class="pht" style="aspect-ratio:1;background-image:url('assets/img/bridge.jpg')"></div>
+<div class="pht" style="aspect-ratio:1;background-image:url('assets/img/eq-paver-concrete.jpg')"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="pad sec" style="background:#F6F6F4">
+<div class="eyb">Related</div>
+<h2 class="h2" style="margin-top:14px">More toll road projects</h2>
+<div class="g3" style="margin-top:clamp(26px,3cqw,44px)">
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:20px"><div class="cap" style="color:#0B9D59">Toll Road &middot; Jambi</div><div class="h3" style="margin-top:9px;font-size:17px">Tol Bayung Lencir &ndash; Tempino Seksi 1</div></div></button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:20px"><div class="cap" style="color:#0B9D59">Toll Road &middot; West Java</div><div class="h3" style="margin-top:9px;font-size:17px">Tol Bocimi</div></div></button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goProject}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:20px"><div class="cap" style="color:#0B9D59">Toll Road &middot; North Sumatra</div><div class="h3" style="margin-top:9px;font-size:17px">Tol Kuala Tanjung &ndash; Indrapura</div></div></button>
+</div>
+</section>
+</div></div>
+
+<div data-page="news"><div class="pg-label"><span>10</span><span>Newsroom</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;right:-8%;top:-80%;width:720px;height:720px;border:1px solid rgba(11,157,89,.32);border-radius:50%"></div>
+<div class="pad" style="position:relative;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5.4cqw,86px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">Newsroom</div>
+<h1 class="d2 rv" style="color:#fff;margin-top:18px"><span data-l="en">News &amp; Events</span><span data-l="id">Berita &amp; Acara</span></h1>
+<span class="rule gx" style="display:block;margin-top:22px"></span>
+</div>
+</section>
+<section class="pad" style="background:#fff;padding-top:24px;padding-bottom:24px;border-bottom:1px solid rgba(0,0,117,.12)">
+<div class="row" style="gap:9px"><button class="chp" style="background:#000075;color:#fff;border-color:#000075">All</button><button class="chp">Corporate News</button><button class="chp">CSR</button><button class="chp">Procurement</button><button class="chp">Awards</button></div>
+</section>
+<section class="pad sec" style="background:#fff;padding-top:clamp(30px,3.4cqw,52px)">
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block;width:100%" onClick="{{goArticle}}">
+<div class="split" style="align-items:center">
+<div class="pht" style="aspect-ratio:16/10;background-image:url('assets/img/surveyor.jpg')"></div>
+<div><div class="cap" style="color:#0B9D59">Corporate &middot; 12 February 2026</div><h2 class="h2" style="margin-top:14px;max-width:20em">Recovery Berbuah Hasil, WKI Raih Laba dan Kontrak Baru 2025</h2><p class="bd" style="margin-top:16px;max-width:32em">The company closed 2025 with a return to profit and a strengthened new-contract position, following two years of financial restructuring.</p><div class="cap" style="margin-top:22px;color:#BD0004">Read the release &rarr;</div></div>
+</div>
+</button>
+<div class="g3" style="margin-top:clamp(34px,4cqw,62px)">
+<button class="card mtile" style="text-align:left;cursor:pointer;padding:0" onClick="{{goArticle}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:22px"><div class="cap" style="color:#0B9D59">Award &middot; 28 Jan 2026</div><div class="h3" style="margin-top:12px;font-size:17px">Dua Prestasi Sekaligus, WKI Raih Penghargaan TOP GRC Awards 2025</div></div></button>
+<button class="card mtile" style="text-align:left;cursor:pointer;padding:0" onClick="{{goArticle}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:22px"><div class="cap" style="color:#0B9D59">Project &middot; 09 Jan 2026</div><div class="h3" style="margin-top:12px;font-size:17px">Proyek Palembang&ndash;Betung Seksi 2 Selesai Lebih Cepat dari Target</div></div></button>
+<button class="card mtile" style="text-align:left;cursor:pointer;padding:0" onClick="{{goArticle}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:22px"><div class="cap" style="color:#0B9D59">Project &middot; 18 Dec 2025</div><div class="h3" style="margin-top:12px;font-size:17px">WKI Dukung Penuh Penyelesaian Proyek Jalan Tol BOCIMI Seksi 3</div></div></button>
+<button class="card mtile" style="text-align:left;cursor:pointer;padding:0" onClick="{{goArticle}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:22px"><div class="cap" style="color:#0B9D59">Energy &middot; 02 Dec 2025</div><div class="h3" style="margin-top:12px;font-size:17px">PT Waskita Wado Energi Laksanakan RUPST, Menuju Operasional PLTA 50 MW</div></div></button>
+<button class="card mtile" style="text-align:left;cursor:pointer;padding:0" onClick="{{goArticle}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:22px"><div class="cap" style="color:#0B9D59">Energy &middot; 20 Nov 2025</div><div class="h3" style="margin-top:12px;font-size:17px">Waskita Sangir Energi Sukses Gelar RUPST dan Komitmen Energi Bersih</div></div></button>
+<button class="card mtile" style="text-align:left;cursor:pointer;padding:0" onClick="{{goArticle}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:22px"><div class="cap" style="color:#0B9D59">CSR &middot; 04 Nov 2025</div><div class="h3" style="margin-top:12px;font-size:17px">Program CSR WKI di Kawasan Proyek Bendungan Jragung</div></div></button>
+</div>
+<div class="row" style="margin-top:clamp(30px,3.4cqw,50px);justify-content:center"><button class="btn2">Load more</button></div>
+</section>
+<section class="pad sec" style="background:#000075;color:#fff">
+<div class="split" style="align-items:center">
+<div><div class="eyb">Procurement</div><h2 class="h2" style="margin-top:14px;color:#fff">Open tenders and vendor registration</h2><p class="bd" style="margin-top:18px;color:rgba(255,255,255,.7);max-width:28em">Announcements are published here and on the WKI portal. Vendor registration is open year-round.</p></div>
+<div>
+<div style="border-top:1px solid rgba(255,255,255,.18)">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.14)"><div><div class="h3" style="color:#fff;font-size:15px">Supply of ready-mix concrete &mdash; Jragung</div><div class="cap" style="color:rgba(255,255,255,.5);margin-top:6px">Closes 28 Feb 2026</div></div><span class="cap" style="color:#0B9D59">Open</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.14)"><div><div class="h3" style="color:#fff;font-size:15px">Steel tower galvanising services</div><div class="cap" style="color:rgba(255,255,255,.5);margin-top:6px">Closes 14 Mar 2026</div></div><span class="cap" style="color:#0B9D59">Open</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0"><div><div class="h3" style="color:#fff;font-size:15px">Heavy equipment spare parts &mdash; annual</div><div class="cap" style="color:rgba(255,255,255,.5);margin-top:6px">Closed 12 Jan 2026</div></div><span class="cap" style="color:rgba(255,255,255,.4)">Closed</span></div>
+</div>
+</div>
+</div>
+</section>
+</div></div>
+
+<div data-page="article"><div class="pg-label"><span>11</span><span>Article</span></div><div class="pgi">
+<section class="pad" style="background:#fff;padding-top:clamp(30px,3.6cqw,56px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,117,.5)">Newsroom &mdash; Corporate News</div>
+<h1 class="rv" style="margin-top:20px;max-width:24em;font-size:clamp(28px,3.9cqw,56px);line-height:1.04;letter-spacing:-.03em;font-weight:700;color:#000075">Recovery Berbuah Hasil, WKI Raih Laba dan Kontrak Baru 2025</h1>
+<div class="row" style="margin-top:24px;gap:22px;align-items:center;border-bottom:1px solid rgba(0,0,117,.12);padding-bottom:24px">
+<span class="cap">12 February 2026</span><span class="cap">Corporate Secretariat</span><span class="cap" style="color:#BD0004">Share</span>
+</div>
+<div class="pht" style="margin-top:28px;aspect-ratio:21/9;min-height:200px;background-image:url('assets/img/ikn-aerial.jpg')"></div>
+<div class="split" style="margin-top:clamp(30px,3.6cqw,56px);grid-template-columns:.32fr .68fr">
+<div>
+<div class="eyb">In this release</div>
+<div style="margin-top:16px;display:flex;flex-direction:column;gap:11px">
+<span class="bd" style="font-size:13.5px">Return to profit in 2025</span>
+<span class="bd" style="font-size:13.5px">New contract position</span>
+<span class="bd" style="font-size:13.5px">Outlook for 2026</span>
+</div>
+<div style="margin-top:30px;border-top:1px solid rgba(0,0,117,.12);padding-top:20px"><div class="cap">Media contact</div><p class="bd" style="margin-top:10px;font-size:13.5px">Corporate Secretariat<br>info.wki@waskitainfrastruktur.co.id</p></div>
+</div>
+<div>
+<p class="lead" style="font-weight:500;color:#000075">Jakarta &mdash; PT Waskita Karya Infrastruktur closed the 2025 financial year with a return to profit and a strengthened new-contract position, marking the end of a two-year recovery programme.</p>
+<p class="bd" style="margin-top:22px">The company attributed the result to tighter project selection, cost discipline across its four business lines, and the completion of several packages ahead of contracted schedule. Section 2 of the Palembang&ndash;Betung toll road was handed over earlier than target, while work on BOCIMI Section 3 and the IKN Nusantara packages progressed on plan.</p>
+<p class="bd" style="margin-top:16px">Management noted that the energy portfolio is expected to contribute from 2026, as the 50 MW hydro capacity held through PT Waskita Wado Energi moves towards operation. The steel fabrication and heavy equipment units are also expected to increase their share of external revenue.</p>
+<blockquote style="margin-top:28px;border-left:3px solid #0B9D59;padding:6px 0 6px 24px"><p class="lead" style="color:#000075">&ldquo;The recovery is not a single year of numbers. It is a change in how we choose and run projects.&rdquo;</p><div class="cap" style="margin-top:12px">Board of Directors</div></blockquote>
+<p class="bd" style="margin-top:28px">Governance improvements were recognised externally during the year, with two awards received at TOP GRC Awards 2025. The company continues to operate certified quality, environmental and occupational health and safety management systems.</p>
+<div class="row" style="margin-top:32px;gap:10px"><span class="mono" style="border:1px solid rgba(0,0,117,.2);color:#000075;font-size:11px;letter-spacing:.1em;padding:7px 13px;text-transform:uppercase">Financial</span><span class="mono" style="border:1px solid rgba(0,0,117,.2);color:#000075;font-size:11px;letter-spacing:.1em;padding:7px 13px;text-transform:uppercase">Governance</span><span class="mono" style="border:1px solid rgba(0,0,117,.2);color:#000075;font-size:11px;letter-spacing:.1em;padding:7px 13px;text-transform:uppercase">2025</span></div>
+</div>
+</div>
+</section>
+<section class="pad sec" style="background:#F6F6F4;margin-top:clamp(34px,4cqw,64px)">
+<div class="eyb">Next</div>
+<h2 class="h2" style="margin-top:14px">More from the newsroom</h2>
+<div class="g3" style="margin-top:clamp(24px,3cqw,44px)">
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goArticle}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:20px"><div class="cap" style="color:#0B9D59">Award &middot; 28 Jan 2026</div><div class="h3" style="margin-top:9px;font-size:17px">Dua Prestasi Sekaligus di TOP GRC Awards 2025</div></div></button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goArticle}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:20px"><div class="cap" style="color:#0B9D59">Project &middot; 09 Jan 2026</div><div class="h3" style="margin-top:9px;font-size:17px">Palembang&ndash;Betung Seksi 2 Selesai Lebih Cepat</div></div></button>
+<button class="mtile" style="border:0;padding:0;background:#fff;text-align:left;display:block" onClick="{{goNews}}"><div class="ph" style="aspect-ratio:16/10"></div><div style="padding:20px"><div class="cap" style="color:#0B9D59">Newsroom</div><div class="h3" style="margin-top:9px;font-size:17px">See all news &amp; events</div></div></button>
+</div>
+</section>
+</div></div>
+
+<div data-page="gov"><div class="pg-label"><span>12</span><span>Governance &amp; KIP</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;left:-10%;bottom:-130%;width:780px;height:780px;border:1px solid rgba(255,255,255,.12);border-radius:50%"></div>
+<div class="pad" style="position:relative;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5.4cqw,86px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">Governance</div>
+<h1 class="d2 rv" style="color:#fff;margin-top:18px;max-width:20em"><span data-l="en">Corporate Governance &amp; Public Information</span><span data-l="id">Tata Kelola &amp; Informasi Publik</span></h1>
+<p class="lead rv" style="color:rgba(255,255,255,.75);margin-top:22px;max-width:32em;animation-delay:.12s">Everything a stakeholder, regulator or journalist needs, in one place &mdash; replacing the previous Information and KIP menus.</p>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="g3" style="gap:1px;background:rgba(0,0,117,.12)">
+<div style="background:#fff;padding:clamp(22px,2.6cqw,34px);border-top:3px solid #000075"><div class="h3">Governance framework</div><p class="bd" style="margin-top:12px;font-size:13.5px">GCG guidelines, code of conduct, board charters and committee structure.</p><div class="cap" style="margin-top:18px;color:#0B9D59">4 documents &rarr;</div></div>
+<div style="background:#fff;padding:clamp(22px,2.6cqw,34px);border-top:3px solid #0B9D59"><div class="h3">Whistleblowing System</div><p class="bd" style="margin-top:12px;font-size:13.5px">Report suspected fraud, corruption or misconduct. Confidential, with protection for the reporter.</p><div class="cap" style="margin-top:18px;color:#0B9D59">Submit a report &rarr;</div></div>
+<div style="background:#fff;padding:clamp(22px,2.6cqw,34px);border-top:3px solid #BD0004"><div class="h3">Reporting of Gratification</div><p class="bd" style="margin-top:12px;font-size:13.5px">Declare gifts and hospitality received in the course of duty, per KPK guidance.</p><div class="cap" style="margin-top:18px;color:#0B9D59">Open form &rarr;</div></div>
+</div>
+</section>
+<section class="pad sec" style="background:#F6F6F4;padding-top:0">
+<div class="split" style="padding-top:clamp(40px,5cqw,80px)">
+<div><div class="eyb">KIP</div><h2 class="h2" style="margin-top:14px">Public information</h2><p class="bd" style="margin-top:18px;max-width:26em">Published under Indonesia&rsquo;s public information disclosure framework, grouped by disclosure obligation.</p></div>
+<div>
+<details class="acc" open><summary><span>Periodic information</span><span>&minus;</span></summary>
+<div style="padding-bottom:18px">
+<div class="dl"><span class="bd" style="color:#000075;font-weight:600">Annual Report 2025</span><span class="cap" style="color:#BD0004">PDF &middot; 8.2 MB</span></div>
+<div class="dl"><span class="bd" style="color:#000075;font-weight:600">Sustainability Report 2025</span><span class="cap" style="color:#BD0004">PDF &middot; 5.4 MB</span></div>
+<div class="dl"><span class="bd" style="color:#000075;font-weight:600">Financial Statements 2025 (audited)</span><span class="cap" style="color:#BD0004">PDF &middot; 3.1 MB</span></div>
+<div class="dl"><span class="bd" style="color:#000075;font-weight:600">Company Profile WKI</span><span class="cap" style="color:#BD0004">PDF &middot; 12 MB</span></div>
+</div>
+</details>
+<details class="acc"><summary><span>Information available at any time</span><span>+</span></summary>
+<div style="padding-bottom:18px"><div class="dl"><span class="bd" style="color:#000075;font-weight:600">Organizational structure &amp; officials</span><span class="cap" style="color:#BD0004">View</span></div><div class="dl"><span class="bd" style="color:#000075;font-weight:600">Procurement procedures</span><span class="cap" style="color:#BD0004">View</span></div><div class="dl"><span class="bd" style="color:#000075;font-weight:600">List of public information</span><span class="cap" style="color:#BD0004">PDF</span></div></div>
+</details>
+<details class="acc"><summary><span>Instant information</span><span>+</span></summary>
+<div style="padding-bottom:18px"><div class="dl"><span class="bd" style="color:#000075;font-weight:600">Emergency and safety notices</span><span class="cap" style="color:#BD0004">View</span></div></div>
+</details>
+<details class="acc" style="border-bottom:1px solid rgba(0,0,117,.12)"><summary><span>Information request</span><span>+</span></summary>
+<div style="padding-bottom:22px"><p class="bd">Submit a request through the online form. Requests are answered within 10 working days, extendable by 7 days with written notice.</p><button class="btn" style="margin-top:18px">Open request form</button></div>
+</details>
+</div>
+</div>
+</section>
+</div></div>
+
+<div data-page="career"><div class="pg-label"><span>13</span><span>Career</span></div><div class="pgi">
+<section style="position:relative;background:#000075;overflow:hidden">
+<div class="pht" style="position:absolute;inset:0;background-image:url('assets/img/surveyor.jpg')"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(95deg,rgba(0,0,117,.95),rgba(11,157,89,.35))"></div>
+<div class="pad" style="position:relative;padding-top:clamp(52px,6.4cqw,120px);padding-bottom:clamp(52px,6.4cqw,120px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)">Career</div>
+<h1 class="d1 rv" style="color:#fff;margin-top:18px;max-width:15em;font-size:clamp(32px,5cqw,72px)"><span data-l="en">Build the country&rsquo;s infrastructure</span><span data-l="id">Bangun infrastruktur negeri</span></h1>
+<p class="lead rv" style="color:rgba(255,255,255,.82);margin-top:24px;max-width:30em;animation-delay:.14s">Engineering, project management, finance and corporate roles across Java, Sumatra and Kalimantan.</p>
+<div class="row rv" style="margin-top:32px;animation-delay:.24s"><button class="btnw">See open positions &rarr;</button></div>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="eyb">Open positions</div>
+<h2 class="h2" style="margin-top:14px">6 vacancies</h2>
+<div style="margin-top:clamp(26px,3cqw,44px);border-top:1px solid rgba(0,0,117,.14)">
+<div class="dl"><div><div class="h3" style="font-size:17px">Site Engineer &mdash; Toll Road</div><div class="cap" style="margin-top:8px">Project based &middot; South Sumatra &middot; 3+ years</div></div><span class="cap" style="color:#BD0004">Apply</span></div>
+<div class="dl"><div><div class="h3" style="font-size:17px">Quantity Surveyor</div><div class="cap" style="margin-top:8px">Project based &middot; IKN Nusantara &middot; 2+ years</div></div><span class="cap" style="color:#BD0004">Apply</span></div>
+<div class="dl"><div><div class="h3" style="font-size:17px">HSE Officer</div><div class="cap" style="margin-top:8px">Project based &middot; Central Java &middot; 2+ years</div></div><span class="cap" style="color:#BD0004">Apply</span></div>
+<div class="dl"><div><div class="h3" style="font-size:17px">Structural Design Engineer</div><div class="cap" style="margin-top:8px">Head office &middot; Jakarta &middot; 4+ years</div></div><span class="cap" style="color:#BD0004">Apply</span></div>
+<div class="dl"><div><div class="h3" style="font-size:17px">Finance &amp; Reporting Analyst</div><div class="cap" style="margin-top:8px">Head office &middot; Jakarta &middot; 3+ years</div></div><span class="cap" style="color:#BD0004">Apply</span></div>
+<div class="dl"><div><div class="h3" style="font-size:17px">Management Trainee Programme 2026</div><div class="cap" style="margin-top:8px">Head office &middot; Jakarta &middot; Fresh graduate</div></div><span class="cap" style="color:#BD0004">Apply</span></div>
+</div>
+</section>
+<section class="pad sec" style="background:#F6F6F4">
+<div class="split">
+<div><div class="eyb">Process</div><h2 class="h2" style="margin-top:14px">How hiring works</h2><p class="bd" style="margin-top:18px;max-width:26em">Four stages, typically four to six weeks. Every applicant receives an outcome.</p></div>
+<div class="g2" style="gap:1px;background:rgba(0,0,117,.12)">
+<div style="background:#F6F6F4;padding:24px"><div class="mono" style="color:#BD0004;font-size:12px;letter-spacing:.14em">01</div><div class="h3" style="margin-top:12px;font-size:16px">Application</div><p class="bd" style="margin-top:8px;font-size:13.5px">Online form and CV.</p></div>
+<div style="background:#F6F6F4;padding:24px"><div class="mono" style="color:#BD0004;font-size:12px;letter-spacing:.14em">02</div><div class="h3" style="margin-top:12px;font-size:16px">Assessment</div><p class="bd" style="margin-top:8px;font-size:13.5px">Technical and psychometric tests.</p></div>
+<div style="background:#F6F6F4;padding:24px"><div class="mono" style="color:#BD0004;font-size:12px;letter-spacing:.14em">03</div><div class="h3" style="margin-top:12px;font-size:16px">Interview</div><p class="bd" style="margin-top:8px;font-size:13.5px">User and HC interview.</p></div>
+<div style="background:#F6F6F4;padding:24px"><div class="mono" style="color:#BD0004;font-size:12px;letter-spacing:.14em">04</div><div class="h3" style="margin-top:12px;font-size:16px">Offer</div><p class="bd" style="margin-top:8px;font-size:13.5px">Medical check and placement.</p></div>
+</div>
+</div>
+</section>
+<section class="pad sec" style="background:#0B9D59;color:#fff">
+<div class="split" style="align-items:center">
+<div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)">Beware of fraud</div><h2 class="h2" style="margin-top:14px;color:#fff;max-width:20em">WKI never charges any fee in its recruitment process</h2><p class="bd" style="margin-top:18px;color:rgba(255,255,255,.85);max-width:28em">All official vacancies are published on this page. Report suspicious offers to the Corporate Secretariat.</p></div>
+<div class="row"><button class="btnw" onClick="{{goContact}}">Report to us</button></div>
+</div>
+</section>
+</div></div>
+
+<div data-page="contact"><div class="pg-label"><span>14</span><span>Contact</span></div><div class="pgi">
+<section style="background:#000075;color:#fff;position:relative;overflow:hidden">
+<div style="position:absolute;right:-6%;top:-70%;width:700px;height:700px;border:1px solid rgba(11,157,89,.35);border-radius:50%"></div>
+<div class="pad" style="position:relative;padding-top:clamp(44px,5cqw,80px);padding-bottom:clamp(44px,5.4cqw,86px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">Contact</div>
+<h1 class="d2 rv" style="color:#fff;margin-top:18px"><span data-l="en">Get in touch</span><span data-l="id">Hubungi Kami</span></h1>
+<span class="rule gx" style="display:block;margin-top:22px"></span>
+</div>
+</section>
+<section class="pad sec" style="background:#fff">
+<div class="split">
+<div>
+<div class="eyb">Head office</div>
+<h2 class="h2" style="margin-top:14px;max-width:18em">Waskita &ndash; ID Survey Tower</h2>
+<p class="bd" style="margin-top:18px">5th Floor, Jl. Letjen MT Haryono Kav. 13<br>Jatinegara, Jakarta Timur 13330<br>Indonesia</p>
+<div style="margin-top:28px;border-top:1px solid rgba(0,0,117,.14)">
+<div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(0,0,117,.1)"><span class="cap">Phone</span><span class="bd" style="color:#000075;font-weight:600">021-8060 2821</span></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(0,0,117,.1)"><span class="cap">Email</span><span class="bd" style="color:#000075;font-weight:600">info.wki@waskitainfrastruktur.co.id</span></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0"><span class="cap">Portal</span><span class="bd" style="color:#000075;font-weight:600">portal.waskitainfrastruktur.co.id</span></div>
+</div>
+<div class="eyb" style="margin-top:34px">Business enquiries</div>
+<div class="g2" style="margin-top:16px;gap:1px;background:rgba(0,0,117,.12)">
+<div style="background:#fff;padding:20px"><div class="h3" style="font-size:15px">Construction rental</div><div class="cap" style="margin-top:8px">Ali</div></div>
+<div style="background:#fff;padding:20px"><div class="h3" style="font-size:15px">Equipment rental</div><div class="cap" style="margin-top:8px">Nirwan</div></div>
+<div style="background:#fff;padding:20px"><div class="h3" style="font-size:15px">Steel trading</div><div class="cap" style="margin-top:8px">Catur</div></div>
+<div style="background:#fff;padding:20px"><div class="h3" style="font-size:15px">Material trading</div><div class="cap" style="margin-top:8px">Arief</div></div>
+</div>
+</div>
+<div>
+<div style="background:#F6F6F4;padding:clamp(24px,3cqw,44px)">
+<div class="eyb" style="color:#000075">Send a message</div>
+<div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+<div><div class="cap" style="margin-bottom:8px">Full name</div><div style="background:#fff;border:1px solid rgba(0,0,117,.16);padding:14px 16px"><span class="bd" style="color:rgba(0,0,117,.35)">Your name</span></div></div>
+<div><div class="cap" style="margin-bottom:8px">Email</div><div style="background:#fff;border:1px solid rgba(0,0,117,.16);padding:14px 16px"><span class="bd" style="color:rgba(0,0,117,.35)">you@company.com</span></div></div>
+<div><div class="cap" style="margin-bottom:8px">Subject</div><div style="background:#fff;border:1px solid rgba(0,0,117,.16);padding:14px 16px;display:flex;justify-content:space-between"><span class="bd" style="color:rgba(0,0,117,.35)">Select a topic</span><span class="bd" style="color:#000075">&or;</span></div></div>
+<div><div class="cap" style="margin-bottom:8px">Message</div><div style="background:#fff;border:1px solid rgba(0,0,117,.16);padding:14px 16px;min-height:120px"><span class="bd" style="color:rgba(0,0,117,.35)">How can we help?</span></div></div>
+<button class="btn" style="align-self:flex-start">Send message</button>
+</div>
+</div>
+<div class="ph" style="margin-top:1px;aspect-ratio:16/9"><span>Map &mdash; embedded location, MT Haryono Kav. 13</span></div>
+</div>
+</div>
+</section>
+</div></div>
+
+<div data-page="rental"><div class="pg-label"><span>15</span><span>Heavy Equipment &amp; Rental</span></div><div class="pgi">
+<section style="position:relative;background:#000075">
+<div style="position:absolute;inset:0;overflow:hidden">
+<div class="pht" style="position:absolute;inset:0;background-image:url('assets/img/operator-excavator.jpg')"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,117,.95) 0%,rgba(0,0,117,.7) 55%,rgba(0,0,117,.35) 100%)"></div>
+<div style="position:absolute;right:-8%;top:-60%;width:700px;height:700px;border:1px solid rgba(11,157,89,.35);border-radius:50%"></div>
+</div>
+<div class="pad" style="position:relative;padding-top:clamp(46px,5.6cqw,100px);padding-bottom:clamp(46px,5.6cqw,100px)">
+<div class="mono fi" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)">Business &mdash; 02 / 04</div>
+<h1 class="d1 rv" style="color:#fff;margin-top:18px;max-width:15em;font-size:clamp(32px,4.8cqw,68px)"><span data-l="en">Heavy Equipment<br>&amp; Rental</span><span data-l="id">Alat Berat<br>&amp; Penyewaan</span></h1>
+<p class="lead rv" style="color:rgba(255,255,255,.8);margin-top:22px;max-width:32em;animation-delay:.14s"><span data-l="en">412 units across earthmoving, hauling, lifting and production plant &mdash; operated by certified crews, maintained in our own workshops, and available to third parties.</span><span data-l="id">412 unit untuk pekerjaan tanah, angkutan, pengangkatan, dan plant produksi &mdash; dioperasikan kru bersertifikat, dirawat di workshop sendiri, dan tersedia untuk pihak ketiga.</span></p>
+<div class="row rv" style="margin-top:30px;gap:12px;animation-delay:.24s">
+<button class="btnw" onClick="{{goContact}}"><span data-l="en">Request a Quote</span><span data-l="id">Ajukan Penawaran</span> &rarr;</button>
+<button class="btn" style="background:transparent;border:1px solid rgba(255,255,255,.4)" onClick="{{goContact}}"><span data-l="en">Download Fleet List</span><span data-l="id">Unduh Daftar Armada</span></button>
+</div>
+</div>
+</section>
+
+<section class="pad" style="background:#fff;padding-top:0;padding-bottom:0">
+<div class="g4" style="gap:1px;background:rgba(0,0,117,.14);transform:translateY(-1px)">
+<div style="background:#fff;padding:clamp(20px,2.2cqw,30px)"><div class="cap">Fleet size</div><div class="num" style="margin-top:9px;font-size:clamp(22px,2.4cqw,34px)">412</div><div class="cap" style="margin-top:6px">units owned</div></div>
+<div style="background:#fff;padding:clamp(20px,2.2cqw,30px)"><div class="cap">Available now</div><div class="num" style="margin-top:9px;font-size:clamp(22px,2.4cqw,34px);color:#0B9D59">190</div><div class="cap" style="margin-top:6px">ready to mobilise</div></div>
+<div style="background:#fff;padding:clamp(20px,2.2cqw,30px)"><div class="cap">Utilisation</div><div class="num" style="margin-top:9px;font-size:clamp(22px,2.4cqw,34px)">74<span style="font-size:15px;letter-spacing:0">%</span></div><div class="bar" style="margin-top:12px"><i style="width:74%"></i></div></div>
+<div style="background:#fff;padding:clamp(20px,2.2cqw,30px)"><div class="cap">Depots</div><div class="num" style="margin-top:9px;font-size:clamp(22px,2.4cqw,34px)">08</div><div class="cap" style="margin-top:6px">Java, Sumatra, Kalimantan</div></div>
+</div>
+</section>
+
+<section style="background:#04042B">
+<div class="mapsplit">
+<sc-if value="{{showFleetMap}}" hint-placeholder-val="{{true}}"><iframe class="mapw" src="wki-asset-map.html?layer=equipment" title="Fleet deployment map"></iframe></sc-if>
+<div style="background:#000075;color:#fff;padding:clamp(20px,2.4cqw,34px);display:flex;flex-direction:column;gap:20px">
+<div>
+<div class="eyb" style="display:flex;align-items:center;gap:8px"><span class="gdot live"></span>Fleet deployment</div>
+<h2 class="h3" style="color:#fff;margin-top:12px;font-size:clamp(15px,1.4cqw,20px)">Where the fleet is working</h2>
+<p class="bd" style="color:rgba(255,255,255,.65);margin-top:10px;font-size:12.5px">Markers group units by site. Hover for category and utilisation; white markers are idle capacity available for hire.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:13px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:11px"><span class="bd" style="color:#fff;font-size:12.5px">IKN Nusantara</span><span class="num" style="color:#fff;font-size:14px">67</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:11px"><span class="bd" style="color:#fff;font-size:12.5px">Java &amp; Jakarta</span><span class="num" style="color:#fff;font-size:14px">148</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:11px"><span class="bd" style="color:#fff;font-size:12.5px">Sumatra</span><span class="num" style="color:#fff;font-size:14px">131</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span class="bd" style="color:#fff;font-size:12.5px">Depot &amp; workshop</span><span class="num" style="color:#0B9D59;font-size:14px">66</span></div>
+</div>
+<div style="margin-top:auto;border-top:1px solid rgba(255,255,255,.18);padding-top:18px">
+<p class="capw" style="color:rgba(255,255,255,.55);line-height:1.7">Mobilisation typically 3&ndash;7 days within Java, 10&ndash;14 days inter-island. Operator and fuel options quoted separately.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#fff">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+<div><div class="eyb"><span data-l="en">Fleet catalogue</span><span data-l="id">Katalog armada</span></div><h2 class="h2" style="margin-top:14px"><span data-l="en">Available for rent</span><span data-l="id">Tersedia untuk disewa</span></h2></div>
+<div class="row" style="gap:9px">
+<button class="chp" data-on="1">All</button><button class="chp">Earthmoving</button><button class="chp">Hauling</button><button class="chp">Compaction</button><button class="chp">Lifting</button><button class="chp">Concrete</button><button class="chp">Plant</button>
+</div>
+</div>
+
+<div style="margin-top:clamp(26px,3cqw,44px)">
+<div class="eqh">
+<span class="cap">Equipment</span><span class="cap">Capacity / class</span><span class="cap">Location</span><span class="cap">Units</span><span class="cap" style="text-align:right">Status</span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-excavator.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Hydraulic excavator 20 t</span><span class="cap" style="margin-top:5px;display:block">Earthmoving &middot; 0.9 m&sup3; bucket</span></span></span>
+<span class="bd" style="font-size:13px">20,000 kg &middot; 110 kW</span>
+<span class="bd" style="font-size:13px">Cibitung depot</span>
+<span class="num" style="font-size:15px">34</span>
+<span style="text-align:right"><span class="cap" style="color:#0B9D59">18 available</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-excavator.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Hydraulic excavator 30 t</span><span class="cap" style="margin-top:5px;display:block">Earthmoving &middot; 1.4 m&sup3; bucket</span></span></span>
+<span class="bd" style="font-size:13px">30,500 kg &middot; 150 kW</span>
+<span class="bd" style="font-size:13px">IKN Nusantara</span>
+<span class="num" style="font-size:15px">22</span>
+<span style="text-align:right"><span class="cap" style="color:#0B9D59">6 available</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-loader-depot.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Bulldozer D65</span><span class="cap" style="margin-top:5px;display:block">Earthmoving &middot; straight tilt blade</span></span></span>
+<span class="bd" style="font-size:13px">20,600 kg &middot; 153 kW</span>
+<span class="bd" style="font-size:13px">Tebing Tinggi</span>
+<span class="num" style="font-size:15px">14</span>
+<span style="text-align:right"><span class="cap" style="color:#0B9D59">5 available</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-dumptruck.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Dump truck 20 m&sup3;</span><span class="cap" style="margin-top:5px;display:block">Hauling &middot; tipper body</span></span></span>
+<span class="bd" style="font-size:13px">20 m&sup3; &middot; 6&times;4</span>
+<span class="bd" style="font-size:13px">Multiple sites</span>
+<span class="num" style="font-size:15px">78</span>
+<span style="text-align:right"><span class="cap" style="color:#0B9D59">41 available</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-roller-drum.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Vibratory roller 10 t</span><span class="cap" style="margin-top:5px;display:block">Compaction &middot; single drum</span></span></span>
+<span class="bd" style="font-size:13px">10,200 kg &middot; 82 kW</span>
+<span class="bd" style="font-size:13px">Jragung</span>
+<span class="num" style="font-size:15px">26</span>
+<span style="text-align:right"><span class="cap" style="color:#0B9D59">12 available</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-grader.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Motor grader 14 ft</span><span class="cap" style="margin-top:5px;display:block">Grading &middot; ripper option</span></span></span>
+<span class="bd" style="font-size:13px">15,600 kg &middot; 138 kW</span>
+<span class="bd" style="font-size:13px">Palembang depot</span>
+<span class="num" style="font-size:15px">12</span>
+<span style="text-align:right"><span class="cap" style="color:#BD0004">Maintenance</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-paver-asphalt.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Asphalt finisher</span><span class="cap" style="margin-top:5px;display:block">Paving &middot; 3.0&ndash;6.0 m screed</span></span></span>
+<span class="bd" style="font-size:13px">6.0 m &middot; 97 kW</span>
+<span class="bd" style="font-size:13px">Bocimi Sc. 3</span>
+<span class="num" style="font-size:15px">9</span>
+<span style="text-align:right"><span class="cap" style="color:#0B9D59">3 available</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-crane-crawler.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Crawler crane 80 t</span><span class="cap" style="margin-top:5px;display:block">Lifting &middot; lattice boom</span></span></span>
+<span class="bd" style="font-size:13px">80 t &middot; 52 m boom</span>
+<span class="bd" style="font-size:13px">Jragung</span>
+<span class="num" style="font-size:15px">8</span>
+<span style="text-align:right"><span class="cap" style="color:#0B9D59">2 available</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-crane-truck.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Tower crane</span><span class="cap" style="margin-top:5px;display:block">Lifting &middot; 60 m jib</span></span></span>
+<span class="bd" style="font-size:13px">8 t tip load &middot; 60 m</span>
+<span class="bd" style="font-size:13px">Jakarta &amp; Bekasi</span>
+<span class="num" style="font-size:15px">11</span>
+<span style="text-align:right"><span class="cap" style="color:#0B9D59">4 available</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-paver-concrete.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Concrete pump</span><span class="cap" style="margin-top:5px;display:block">Concrete &middot; boom placing</span></span></span>
+<span class="bd" style="font-size:13px">37 m boom &middot; 120 m&sup3;/h</span>
+<span class="bd" style="font-size:13px">Jambi corridor</span>
+<span class="num" style="font-size:15px">19</span>
+<span style="text-align:right"><span class="cap" style="color:#0B9D59">7 available</span></span>
+</div>
+<div class="eqr">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-roller-pneumatic.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Batching plant</span><span class="cap" style="margin-top:5px;display:block">Plant &middot; mobile, with silo</span></span></span>
+<span class="bd" style="font-size:13px">60 m&sup3;/h</span>
+<span class="bd" style="font-size:13px">Sepaku, IKN</span>
+<span class="num" style="font-size:15px">6</span>
+<span style="text-align:right"><span class="cap" style="color:#55557A">Deployed</span></span>
+</div>
+<div class="eqr" style="border-bottom:0">
+<span><span class="eqthumb" style="background-image:url('assets/img/thumb/eq-pile-driver.jpg')"></span><span style="min-width:0"><span class="h3" style="font-size:15px;display:block">Stone crusher line</span><span class="cap" style="margin-top:5px;display:block">Plant &middot; jaw + cone</span></span></span>
+<span class="bd" style="font-size:13px">150 t/h</span>
+<span class="bd" style="font-size:13px">Bojonegara</span>
+<span class="num" style="font-size:15px">3</span>
+<span style="text-align:right"><span class="cap" style="color:#55557A">Deployed</span></span>
+</div>
+</div>
+<p class="cap" style="margin-top:22px;max-width:44em;line-height:1.7">Unit counts and availability are indicative and updated weekly. Specifications follow manufacturer data sheets; exact model and configuration are confirmed at quotation. Rental rates are issued on request and depend on duration, location and whether operator and fuel are included.</p>
+</section>
+
+<section class="pad sec" style="background:#F6F6F4">
+<div class="split">
+<div><div class="eyb"><span data-l="en">How it works</span><span data-l="id">Cara kerjanya</span></div><h2 class="h2" style="margin-top:14px"><span data-l="en">From enquiry to mobilisation</span><span data-l="id">Dari permintaan hingga mobilisasi</span></h2><p class="bd" style="margin-top:18px;max-width:26em">Four steps. Most enquiries receive a written quotation within two working days.</p>
+<div class="row" style="margin-top:26px"><button class="btn" onClick="{{goContact}}"><span data-l="en">Start an Enquiry</span><span data-l="id">Mulai Permintaan</span></button></div>
+</div>
+<div class="g2" style="gap:1px;background:rgba(0,0,117,.14)">
+<div style="background:#F6F6F4;padding:24px"><div class="mono" style="color:#BD0004;font-size:12px;letter-spacing:.14em">01</div><div class="h3" style="margin-top:12px;font-size:16px">Enquiry</div><p class="bd" style="margin-top:8px;font-size:13px">Equipment type, duration, site location and access.</p></div>
+<div style="background:#F6F6F4;padding:24px"><div class="mono" style="color:#BD0004;font-size:12px;letter-spacing:.14em">02</div><div class="h3" style="margin-top:12px;font-size:16px">Quotation</div><p class="bd" style="margin-top:8px;font-size:13px">Rate, mobilisation cost, operator and fuel options.</p></div>
+<div style="background:#F6F6F4;padding:24px"><div class="mono" style="color:#BD0004;font-size:12px;letter-spacing:.14em">03</div><div class="h3" style="margin-top:12px;font-size:16px">Contract &amp; inspection</div><p class="bd" style="margin-top:8px;font-size:13px">Joint inspection, condition report and HSE briefing.</p></div>
+<div style="background:#F6F6F4;padding:24px"><div class="mono" style="color:#BD0004;font-size:12px;letter-spacing:.14em">04</div><div class="h3" style="margin-top:12px;font-size:16px">Mobilisation</div><p class="bd" style="margin-top:8px;font-size:13px">Delivery to site with certificates and maintenance log.</p></div>
+</div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#000075;color:#fff">
+<div class="split">
+<div>
+<div class="eyb"><span data-l="en">Why rent from WKI</span><span data-l="id">Mengapa sewa dari WKI</span></div>
+<h2 class="h2" style="margin-top:14px;color:#fff;max-width:20em"><span data-l="en">A contractor&rsquo;s fleet, not a broker&rsquo;s list</span><span data-l="id">Armada kontraktor, bukan daftar broker</span></h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:2px">
+<div style="border-top:1px solid rgba(255,255,255,.18);padding:18px 0"><div class="h3" style="color:#fff;font-size:16px">Owned and maintained in-house</div><p class="bd" style="margin-top:9px;color:rgba(255,255,255,.7);font-size:13px">Every unit is on our own asset register, serviced in WKI workshops with a maintenance log that travels with the machine.</p></div>
+<div style="border-top:1px solid rgba(255,255,255,.18);padding:18px 0"><div class="h3" style="color:#fff;font-size:16px">Certified operators available</div><p class="bd" style="margin-top:9px;color:rgba(255,255,255,.7);font-size:13px">Operators hold valid SIO certification, with HSE induction to the standard we apply on our own sites.</p></div>
+<div style="border-top:1px solid rgba(255,255,255,.18);padding:18px 0"><div class="h3" style="color:#fff;font-size:16px">Eight depots, national reach</div><p class="bd" style="margin-top:9px;color:rgba(255,255,255,.7);font-size:13px">Depots in Java, Sumatra and Kalimantan shorten mobilisation and keep spare parts close to site.</p></div>
+<div style="border-top:1px solid rgba(255,255,255,.18);padding:18px 0"><div class="h3" style="color:#fff;font-size:16px">Contract terms that hold</div><p class="bd" style="margin-top:9px;color:rgba(255,255,255,.7);font-size:13px">Standard rental agreement, joint inspection at handover and return, and a single point of contact for the duration.</p></div>
+</div>
+</div>
+</section>
+
+<section class="pad sec" style="background:#fff">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;border-top:1px solid rgba(0,0,117,.12);border-bottom:1px solid rgba(0,0,117,.12);padding:clamp(26px,3.2cqw,48px) 0">
+<div>
+<h2 class="h2" style="max-width:20em"><span data-l="en">Need a unit on site next week?</span><span data-l="id">Butuh unit di lokasi minggu depan?</span></h2>
+<p class="bd" style="margin-top:14px">Equipment rental desk &mdash; Nirwan &middot; 021-8060 2821</p>
+</div>
+<div class="row"><button class="btn" onClick="{{goContact}}"><span data-l="en">Request a Quote</span><span data-l="id">Ajukan Penawaran</span></button><button class="btn2" onClick="{{goProjects}}"><span data-l="en">See Our Projects</span><span data-l="id">Lihat Proyek Kami</span></button></div>
+</div>
+</section>
+</div></div>
+
+<!--PAGES-END-->
+</div>
+
+<footer class="site-ft" style="background:#000075;color:#fff">
+<div class="pad" style="padding-top:clamp(44px,5.4cqw,84px);padding-bottom:28px">
+<div class="g4" style="gap:clamp(24px,3cqw,44px);align-items:start">
+<div>
+<div style="background:#fff;padding:9px 12px;display:inline-flex"><img src="assets/logo-wki.png" alt="Waskita Karya Infrastruktur" style="height:42px;display:block"></div>
+<p class="bd" style="margin-top:20px;color:rgba(255,255,255,.62);font-size:13px">Waskita &ndash; ID Survey Tower, 5th Floor<br>Jl. Letjen MT Haryono Kav. 13<br>Jatinegara, Jakarta Timur 13330</p>
+<p class="mono" style="margin-top:16px;font-size:12px;color:rgba(255,255,255,.62);line-height:1.8">021-8060 2821<br>info.wki@waskitainfrastruktur.co.id</p>
+</div>
+<div>
+<div class="eyb" style="margin-bottom:16px">Company</div>
+<a class="ftl" onClick="{{goAbout}}">Introduction</a><a class="ftl" onClick="{{goVision}}">Vision &amp; Mission</a><a class="ftl" onClick="{{goVision}}">Core Values</a><a class="ftl" onClick="{{goMilestone}}">Milestone</a><a class="ftl" onClick="{{goBod}}">Board of Directors</a><a class="ftl" onClick="{{goAbout}}">The Group</a>
+</div>
+<div>
+<div class="eyb" style="margin-bottom:16px">Business &amp; Projects</div>
+<a class="ftl" onClick="{{goBizDetail}}">Infrastructure</a><a class="ftl" onClick="{{goRental}}">Heavy Equipment &amp; Rental</a><a class="ftl" onClick="{{goBiz}}">Steel Fabrication</a><a class="ftl" onClick="{{goBiz}}">Energy</a><a class="ftl" onClick="{{goProjects}}">All Projects</a>
+</div>
+<div>
+<div class="eyb" style="margin-bottom:16px">Governance &amp; More</div>
+<a class="ftl" onClick="{{goGov}}">Corporate Governance</a><a class="ftl" onClick="{{goGov}}">Whistleblowing System</a><a class="ftl" onClick="{{goGov}}">Public Information (KIP)</a><a class="ftl" onClick="{{goNews}}">Newsroom</a><a class="ftl" onClick="{{goCareer}}">Career</a><a class="ftl" onClick="{{goContact}}">Contact</a>
+</div>
+</div>
+<div style="margin-top:clamp(30px,3.6cqw,56px);padding-top:22px;border-top:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+<span class="mono" style="font-size:11.5px;color:rgba(255,255,255,.5)">&copy; 2026 PT Waskita Karya Infrastruktur. All rights reserved.</span>
+<div class="row" style="gap:18px"><span class="mono" style="font-size:11.5px;color:rgba(255,255,255,.5)">Instagram</span><span class="mono" style="font-size:11.5px;color:rgba(255,255,255,.5)">Facebook</span><span class="mono" style="font-size:11.5px;color:rgba(255,255,255,.5)">X</span><span class="mono" style="font-size:11.5px;color:rgba(255,255,255,.5)">TikTok</span></div>
+</div>
+</div>
+</footer>
+
+</div>
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;showToolbar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Presentation&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;subtle&quot;,&quot;off&quot;],&quot;default&quot;:&quot;subtle&quot;,&quot;tsType&quot;:&quot;'subtle' | 'off'&quot;,&quot;section&quot;:&quot;Presentation&quot;},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;comfortable&quot;,&quot;compact&quot;],&quot;default&quot;:&quot;comfortable&quot;,&quot;tsType&quot;:&quot;'comfortable' | 'compact'&quot;,&quot;section&quot;:&quot;Presentation&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'cover', vp: 'desktop', lang: 'en', mode: 'proto', zoom: 1, filter: 'all' };
+  widths = { desktop: 1440, tablet: 834, mobile: 390 };
+  labels = { cover: '00 Cover', home: '01 Home', about: '02 Introduction', vision: '03 Vision & Values', milestone: '04 Milestone', bod: '05 Board of Directors', biz: '06 Business Lines', bizdetail: '07 Infrastructure', rental: '15 Equipment Rental', projects: '08 Projects', project: '09 Project Detail', news: '10 Newsroom', article: '11 Article', gov: '12 Governance', career: '13 Career', contact: '14 Contact' };
+
+  componentDidMount() {
+    this.ro = new ResizeObserver(() => this.fit());
+    if (this.wrap) this.ro.observe(this.wrap);
+    this.fit();
+  }
+  componentDidUpdate(pp, ps) {
+    if (!ps || ps.vp !== this.state.vp || ps.mode !== this.state.mode) this.fit();
+  }
+  componentWillUnmount() { if (this.ro) this.ro.disconnect(); }
+
+  fit() {
+    if (!this.wrap) return;
+    const w = this.wrap.clientWidth;
+    if (!w) return;
+    const z = this.state.mode === 'board' ? 1 : Math.min(1, w / this.widths[this.state.vp]);
+    if (Math.abs(z - this.state.zoom) > 0.002) this.setState({ zoom: z });
+  }
+
+  go(page) {
+    this.setState({ page, mode: 'proto' });
+    if (this.wrap && this.wrap.parentElement) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const go = p => () => this.go(p);
+    return {
+      // Maps mount only for the screen being shown (or in board mode), so a
+      // hidden 0×0 iframe never boots d3 and never measures at zero.
+      showProjectMap: s.mode === 'board' || s.page === 'projects',
+      showFleetMap: s.mode === 'board' || s.page === 'rental',
+      appCls: (this.props.showToolbar === false ? 'no-tb' : '') + (this.props.motion === 'off' ? ' mo-off' : '') + (this.props.density === 'compact' ? ' dense' : ''),
+      setWrap: el => {
+        if (el === this.wrap) return;
+        this.wrap = el;
+        if (el && this.ro) { this.ro.observe(el); this.fit(); }
+      },
+      rootCls: 'site pg-' + s.page + ' lang-' + s.lang + ' f-' + s.filter + ' vp-' + s.vp + (s.mode === 'board' ? ' board' : ''),
+      fAll: () => this.setState({ filter: 'all' }),
+      fToll: () => this.setState({ filter: 'toll' }),
+      fDam: () => this.setState({ filter: 'dam' }),
+      fBld: () => this.setState({ filter: 'bld' }),
+      fTwr: () => this.setState({ filter: 'twr' }),
+      fIkn: () => this.setState({ filter: 'ikn' }),
+      stageW: s.mode === 'board' ? '100%' : this.widths[s.vp] + 'px',
+      stageZ: s.mode === 'board' ? 1 : s.zoom,
+      pageLabel: s.mode === 'board' ? 'All screens' : (this.labels[s.page] || ''),
+      isProto: s.mode === 'proto' ? '1' : '0',
+      isBoard: s.mode === 'board' ? '1' : '0',
+      isD: s.vp === 'desktop' ? '1' : '0',
+      isT: s.vp === 'tablet' ? '1' : '0',
+      isM: s.vp === 'mobile' ? '1' : '0',
+      isEn: s.lang === 'en' ? '1' : '0',
+      isId: s.lang === 'id' ? '1' : '0',
+      enCol: s.lang === 'en' ? '#fff' : 'rgba(255,255,255,.5)',
+      idCol: s.lang === 'id' ? '#fff' : 'rgba(255,255,255,.5)',
+      setProto: () => this.setState({ mode: 'proto' }),
+      setBoard: () => this.setState({ mode: 'board' }),
+      setD: () => this.setState({ vp: 'desktop' }),
+      setT: () => this.setState({ vp: 'tablet' }),
+      setM: () => this.setState({ vp: 'mobile' }),
+      setEn: () => this.setState({ lang: 'en' }),
+      setId: () => this.setState({ lang: 'id' }),
+      goCover: go('cover'), goHome: go('home'), goAbout: go('about'), goVision: go('vision'),
+      goMilestone: go('milestone'), goBod: go('bod'), goBiz: go('biz'), goBizDetail: go('bizdetail'),
+      goRental: go('rental'),
+      goProjects: go('projects'), goProject: go('project'), goNews: go('news'), goArticle: go('article'),
+      goGov: go('gov'), goCareer: go('career'), goContact: go('contact')
+    };
+  }
+}
+
+</script>
+</body>
+</html>

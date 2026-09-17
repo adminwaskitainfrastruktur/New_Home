@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WKI — National asset map</title>
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;background:#04042B;overflow:hidden}
+body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+#map{position:absolute;inset:0}
+svg{display:block;width:100%;height:100%}
+.land{fill:#000075;stroke:rgba(255,255,255,.42);stroke-width:.7}
+.land-other{fill:#0A0A3C;stroke:rgba(255,255,255,.08);stroke-width:.5}
+.grat{fill:none;stroke:rgba(255,255,255,.07);stroke-width:.5}
+.pin{cursor:pointer}
+.pin circle.dot{transition:r .25s ease}
+.pin:hover circle.dot{r:7}
+.pulse{animation:pulse 2.6s ease-out infinite;transform-origin:center}
+@keyframes pulse{0%{r:5;opacity:.55}70%{r:17;opacity:0}100%{r:17;opacity:0}}
+.lbl{font-family:ui-monospace,Menlo,monospace;font-size:8.5px;letter-spacing:.06em;fill:rgba(255,255,255,.62);pointer-events:none;text-transform:uppercase}
+#tip{position:absolute;pointer-events:none;background:#fff;border-left:3px solid #0B9D59;padding:10px 13px;min-width:170px;max-width:250px;opacity:0;transition:opacity .18s;box-shadow:0 14px 34px rgba(0,0,0,.35);z-index:5}
+#tip .k{font-family:ui-monospace,Menlo,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#0B9D59}
+#tip .n{font-size:13px;font-weight:700;color:#000075;line-height:1.25;margin-top:6px;letter-spacing:-.01em}
+#tip .m{font-family:ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.06em;color:#55557A;margin-top:7px}
+#legend{position:absolute;left:16px;bottom:14px;display:flex;flex-wrap:wrap;gap:14px;z-index:4}
+#legend span{display:flex;align-items:center;gap:7px;font-family:ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+#legend i{width:8px;height:8px;border-radius:50%;display:block}
+#err{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:28px;text-align:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="tip"></div>
+<div id="legend"></div>
+<div id="err">Map geometry unavailable offline</div>
+<script>
+const params = new URLSearchParams(location.search);
+const LAYER = params.get("layer") === "equipment" ? "equipment" : "projects";
+
+const C = { navy:"#000075", green:"#0B9D59", red:"#BD0004", white:"#ffffff" };
+
+// Aggregate public data. Coordinates are site centroids, not survey points.
+const PROJECTS = [
+  { n:"Tol Palembang – Betung Sc. 1 & 2", k:"Toll Road", loc:"South Sumatra", lon:104.70, lat:-2.95, st:"done", pct:100, big:1 },
+  { n:"Tol Bayung Lencir – Tempino Sc. 1", k:"Toll Road", loc:"Jambi", lon:103.60, lat:-2.10, st:"done", pct:100 },
+  { n:"Tol KAPB", k:"Toll Road", loc:"South Sumatra", lon:104.05, lat:-3.30, st:"live", pct:62 },
+  { n:"Tol Tebing Tinggi – Parapat", k:"Toll Road", loc:"North Sumatra", lon:99.00, lat:3.10, st:"live", pct:48 },
+  { n:"Tol Kuala Tanjung – Indrapura", k:"Toll Road", loc:"North Sumatra", lon:99.50, lat:3.35, st:"done", pct:100 },
+  { n:"Bendungan Rukoh", k:"Dam", loc:"Aceh", lon:95.95, lat:5.20, st:"done", pct:100 },
+  { n:"Bendungan Way Sekampung", k:"Dam", loc:"Lampung", lon:104.90, lat:-5.30, st:"done", pct:100 },
+  { n:"Bendungan Jlantah", k:"Dam", loc:"Central Java", lon:111.05, lat:-7.70, st:"live", pct:88 },
+  { n:"Bendungan Jragung", k:"Dam", loc:"Central Java", lon:110.60, lat:-7.10, st:"live", pct:74, big:1 },
+  { n:"PLTMH Sangir", k:"Energy", loc:"West Sumatra", lon:101.30, lat:-1.40, st:"live", pct:57 },
+  { n:"PLTA Wado", k:"Energy", loc:"West Java", lon:108.05, lat:-6.95, st:"live", pct:81, big:1 },
+  { n:"Tol Cisumdawu", k:"Toll Road", loc:"West Java", lon:107.95, lat:-6.80, st:"done", pct:100 },
+  { n:"Tol Cibitung – Cilincing", k:"Toll Road", loc:"Jakarta", lon:106.95, lat:-6.15, st:"done", pct:100 },
+  { n:"Tol Cimanggis – Cibitung", k:"Toll Road", loc:"West Java", lon:106.90, lat:-6.40, st:"done", pct:100 },
+  { n:"Tol Bocimi Sc. 3", k:"Toll Road", loc:"West Java", lon:106.80, lat:-6.70, st:"live", pct:69 },
+  { n:"Tol Becakayu Sc. 2A", k:"Toll Road", loc:"Jakarta", lon:106.92, lat:-6.23, st:"done", pct:100 },
+  { n:"Tol Pasuruan – Probolinggo Sc. 4", k:"Toll Road", loc:"East Java", lon:113.10, lat:-7.80, st:"done", pct:100 },
+  { n:"Tol KLBM", k:"Toll Road", loc:"East Java", lon:112.30, lat:-7.20, st:"done", pct:100 },
+  { n:"JLS Lot 2 & 6", k:"Road", loc:"East Java", lon:111.70, lat:-8.30, st:"done", pct:100 },
+  { n:"FO Sekip Ujung", k:"Flyover", loc:"Palembang", lon:104.75, lat:-2.97, st:"done", pct:100 },
+  { n:"Stone Crusher Bojonegara", k:"Plant", loc:"Banten", lon:106.10, lat:-5.92, st:"live", pct:95 },
+  { n:"Rekonstruksi Jembatan 4 Palu", k:"Bridge", loc:"Central Sulawesi", lon:119.87, lat:-0.90, st:"done", pct:100 },
+  { n:"Tower 500 KV Sumsel Pkt 3", k:"Transmission", loc:"South Sumatra", lon:104.30, lat:-3.50, st:"live", pct:41 },
+  { n:"Tower 500 KV Jambi", k:"Transmission", loc:"Jambi", lon:103.60, lat:-1.60, st:"live", pct:35 },
+  { n:"Tower 150 KV Balikpapan", k:"Transmission", loc:"East Kalimantan", lon:116.85, lat:-1.25, st:"done", pct:100 },
+  { n:"IKN — Jalan Lingkar Sepaku Sgm. 4", k:"IKN", loc:"East Kalimantan", lon:116.68, lat:-0.98, st:"live", pct:77, big:1 },
+  { n:"IKN — Jalan Feeder KIPP", k:"IKN", loc:"East Kalimantan", lon:116.72, lat:-1.02, st:"live", pct:64 },
+  { n:"IKN — Sumbu Kebangsaan Timur 6C-1", k:"IKN", loc:"East Kalimantan", lon:116.76, lat:-0.94, st:"live", pct:58 },
+  { n:"IKN — Kantor Kemenko 3", k:"IKN", loc:"East Kalimantan", lon:116.70, lat:-0.90, st:"live", pct:52 },
+  { n:"IKN — Rusun ASN 3", k:"IKN", loc:"East Kalimantan", lon:116.65, lat:-0.93, st:"live", pct:70 },
+  { n:"IKN — Gedung Sekretariat Presiden", k:"IKN", loc:"East Kalimantan", lon:116.74, lat:-0.99, st:"done", pct:100, big:1 }
+];
+
+const EQUIPMENT = [
+  { n:"Excavator fleet — 24 units", k:"Earthmoving", loc:"IKN Nusantara", lon:116.70, lat:-0.97, st:"live", pct:92, big:1 },
+  { n:"Dump truck fleet — 41 units", k:"Hauling", loc:"IKN Nusantara", lon:116.66, lat:-0.91, st:"live", pct:88 },
+  { n:"Batching plant — 2 units", k:"Concrete", loc:"Sepaku", lon:116.78, lat:-1.03, st:"live", pct:74 },
+  { n:"Crawler crane — 6 units", k:"Lifting", loc:"Jragung", lon:110.62, lat:-7.12, st:"live", pct:81 },
+  { n:"Vibro roller — 12 units", k:"Compaction", loc:"Jragung", lon:110.55, lat:-7.06, st:"idle", pct:36 },
+  { n:"Tower crane — 9 units", k:"Lifting", loc:"Jakarta & Bekasi", lon:106.92, lat:-6.22, st:"live", pct:79 },
+  { n:"Asphalt finisher — 5 units", k:"Paving", loc:"Bocimi Sc. 3", lon:106.81, lat:-6.71, st:"live", pct:68 },
+  { n:"Bulldozer — 8 units", k:"Earthmoving", loc:"Tebing Tinggi", lon:99.02, lat:3.12, st:"live", pct:71 },
+  { n:"Stone crusher — 3 lines", k:"Aggregate", loc:"Bojonegara", lon:106.12, lat:-5.94, st:"live", pct:95 },
+  { n:"Pile driver — 7 units", k:"Foundation", loc:"Kuala Tanjung", lon:99.52, lat:3.36, st:"idle", pct:22 },
+  { n:"Motor grader — 6 units", k:"Grading", loc:"Palembang – Betung", lon:104.72, lat:-2.96, st:"maint", pct:0 },
+  { n:"Concrete pump — 11 units", k:"Concrete", loc:"Jambi corridor", lon:103.62, lat:-1.62, st:"live", pct:63 },
+  { n:"Fabrication yard", k:"Steel", loc:"Cibitung", lon:107.00, lat:-6.28, st:"live", pct:84, big:1 },
+  { n:"Workshop & depot", k:"Maintenance", loc:"MT Haryono, Jakarta", lon:106.86, lat:-6.24, st:"live", pct:57, big:1 },
+  { n:"Mini hydro O&M crew", k:"Energy", loc:"Sangir", lon:101.32, lat:-1.42, st:"live", pct:49 },
+  { n:"Transmission erection crew", k:"Towers", loc:"South Sumatra", lon:104.32, lat:-3.52, st:"idle", pct:31 }
+];
+
+const DATA = LAYER === "equipment" ? EQUIPMENT : PROJECTS;
+
+const LEGEND = LAYER === "equipment"
+  ? [{ c:C.green, t:"Operating" }, { c:C.white, t:"Idle / standby" }, { c:C.red, t:"Maintenance" }]
+  : [{ c:C.green, t:"In progress" }, { c:C.white, t:"Delivered" }, { c:C.red, t:"Priority" }];
+
+document.getElementById("legend").innerHTML = LEGEND
+  .map(l => `<span><i style="background:${l.c}"></i>${l.t}</span>`).join("");
+
+const pinColor = d => {
+  if (LAYER === "equipment") return d.st === "live" ? C.green : d.st === "maint" ? C.red : C.white;
+  return d.st === "live" ? C.green : C.white;
+};
+
+const tip = document.getElementById("tip");
+const host = document.getElementById("map");
+let land = null, other = null, lastW = 0, lastH = 0, raf = 0, timer = 0;
+
+function render() {
+  const w = host.clientWidth, h = host.clientHeight;
+  // Bail while hidden or unmeasured — never draw at a guessed size.
+  if (!land || !w || !h) return;
+  if (w === lastW && h === lastH) return;
+  lastW = w; lastH = h;
+  d3.select(host).selectAll("svg").remove();
+
+  const svg = d3.select(host).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+  // Mercator fitted to the Indonesian archipelago, inset so pins near the edge stay visible.
+  const proj = d3.geoMercator().fitExtent([[18, 26], [w - 18, h - 26]], land);
+  const path = d3.geoPath(proj);
+
+  svg.append("g").selectAll("path").data(other.features).join("path")
+    .attr("class", "land-other").attr("d", path);
+  svg.append("path").datum(d3.geoGraticule().step([10, 10])())
+    .attr("class", "grat").attr("d", path);
+  svg.append("path").datum(land).attr("class", "land").attr("d", path);
+
+  const g = svg.append("g");
+  DATA.forEach((d, i) => {
+    const p = proj([d.lon, d.lat]);
+    if (!p) return;
+    const col = pinColor(d);
+    const node = g.append("g").attr("class", "pin")
+      .attr("transform", `translate(${p[0]},${p[1]})`);
+
+    if (d.st === "live" && d.big) {
+      node.append("circle").attr("class", "pulse").attr("r", 5)
+        .attr("fill", "none").attr("stroke", col).attr("stroke-width", 1.2)
+        .style("animation-delay", (i % 6) * 0.42 + "s");
+    }
+    node.append("circle").attr("class", "dot")
+      .attr("r", d.big ? 6 : 4.4).attr("fill", col)
+      .attr("stroke", "#04042B").attr("stroke-width", 1.4);
+
+    node.on("mousemove", ev => {
+      tip.innerHTML =
+        `<div class="k">${d.k} &middot; ${d.loc}</div><div class="n">${d.n}</div>` +
+        `<div class="m">${LAYER === "equipment"
+          ? (d.st === "maint" ? "Under maintenance" : d.st === "idle" ? "Idle · utilisation " + d.pct + "%" : "Operating · utilisation " + d.pct + "%")
+          : (d.pct === 100 ? "Delivered" : "Progress " + d.pct + "%")}</div>`;
+      const box = tip.getBoundingClientRect();
+      tip.style.left = Math.min(ev.clientX + 14, w - box.width - 10) + "px";
+      tip.style.top = Math.max(ev.clientY - box.height / 2, 8) + "px";
+      tip.style.opacity = 1;
+    }).on("mouseleave", () => { tip.style.opacity = 0; })
+      .on("click", () => {
+        parent.postMessage({ type: "wki:pin", layer: LAYER, item: d }, "*");
+      });
+  });
+}
+
+d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json")
+  .then(topo => {
+    const all = topojson.feature(topo, topo.objects.countries);
+    land = all.features.find(f => f.properties.name === "Indonesia");
+    other = { type: "FeatureCollection", features: all.features.filter(f => f !== land) };
+    render();
+    // Coalesce resize bursts into one redraw; render() itself no-ops when the
+    // box has not actually changed, so this cannot re-enter. rAF is dropped
+    // while the frame is hidden or throttled, so a timeout backs it up.
+    new ResizeObserver(() => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+      raf = requestAnimationFrame(render);
+      timer = setTimeout(render, 220);
+    }).observe(host);
+  })
+  .catch(() => { document.getElementById("err").style.display = "flex"; });
+</script>
+</body>
+</html>

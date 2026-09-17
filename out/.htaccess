@@ -1,0 +1,163 @@
+# ============================================================================
+#  PT Waskita Karya Infrastruktur - new.waskitainfrastruktur.co.id
+#  Static export (Next.js output: "export") on Apache / Hostinger shared hosting.
+#
+#  Upload the CONTENTS of out/ into the subdomain document root (public_html or
+#  the new.waskitainfrastruktur.co.id folder). This file ships inside out/
+#  automatically because it lives in public/ - edit it here, never in out/,
+#  because the next build overwrites out/.
+# ============================================================================
+
+Options -Indexes +FollowSymLinks
+DirectoryIndex index.html
+ServerSignature Off
+
+# Every route is exported as <route>/index.html (next.config.ts trailingSlash),
+# so Apache resolves a bare /about by appending the slash itself.
+DirectorySlash On
+
+ErrorDocument 404 /404.html
+
+# ---------------------------------------------------------------------------
+# 1. Canonical origin - HTTPS, no www
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Hostinger terminates TLS at the edge, so trust X-Forwarded-Proto as well as
+  # HTTPS. Both must be absent before redirecting, otherwise this loops.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^(.*)$ https://new.waskitainfrastruktur.co.id/$1 [R=301,L,QSA]
+
+  RewriteCond %{HTTP_HOST} ^www\.new\.waskitainfrastruktur\.co\.id$ [NC]
+  RewriteRule ^(.*)$ https://new.waskitainfrastruktur.co.id/$1 [R=301,L,QSA]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 2. Legacy URL map - old WordPress paths to the new 7-item IA.
+#    Targets carry a trailing slash to match the export. Targets containing a
+#    fragment are quoted so the parser does not read # as a comment.
+# ---------------------------------------------------------------------------
+<IfModule mod_alias.c>
+  # About
+  RedirectMatch 301 ^/introduction/?$                      /about/
+  RedirectMatch 301 ^/the-group/?$                         "/about/#group"
+  RedirectMatch 301 ^/accreditations-and-certifications/?$ "/about/#accreditation"
+  RedirectMatch 301 ^/vision-and-mission/?$                /about/vision/
+  RedirectMatch 301 ^/vision-and-mission-2/?$              "/about/#accreditation"
+  RedirectMatch 301 ^/core-values/?$                       "/about/vision/#core-values"
+  RedirectMatch 301 ^/corporate-identity/?$                /about/vision/
+  RedirectMatch 301 ^/milestone/?$                         /about/milestone/
+
+  # Leadership - five old destinations collapse into one page
+  RedirectMatch 301 ^/board-of-directors/?$                /about/leadership/
+  RedirectMatch 301 ^/board-of-commissioners/?$            /about/leadership/
+  RedirectMatch 301 ^/corporate-secretary/?$               /about/leadership/
+  RedirectMatch 301 ^/internal-audit/?$                    /about/leadership/
+  RedirectMatch 301 ^/sekretaris-dewan-komisaris/?$        /about/leadership/
+  RedirectMatch 301 ^/organizational-structure/?$          "/about/leadership/#structure"
+
+  # Business lines
+  RedirectMatch 301 ^/investment-and-construction/?$       /business/infrastructure/
+  RedirectMatch 301 ^/heavy-duty-equipment/?$              /business/heavy-equipment/
+  RedirectMatch 301 ^/steel-fabrication/?$                 /business/steel-fabrication/
+  RedirectMatch 301 ^/heavy-duty-equipment-2/?$            /business/energy/
+
+  # Projects
+  RedirectMatch 301 ^/project/?$                           /projects/
+
+  # Newsroom
+  RedirectMatch 301 ^/corporate-news/?$                    /newsroom/
+  RedirectMatch 301 ^/csr/?$                               /newsroom/?category=csr
+  RedirectMatch 301 ^/procurement/?$                       "/newsroom/#procurement"
+
+  # Governance and public information
+  RedirectMatch 301 ^/corporate-governance/?$              /governance/
+  RedirectMatch 301 ^/whistleblowing-system-wbs/?$         "/governance/#wbs"
+  RedirectMatch 301 ^/pelaporan-gratifikasi/?$             "/governance/#gratification"
+  RedirectMatch 301 ^/elementor-16208/?$                   "/governance/#kip"
+  RedirectMatch 301 ^/informasi-setiap-saat/?$             "/governance/#kip"
+  RedirectMatch 301 ^/informasi-serta-merta/?$             "/governance/#kip"
+  RedirectMatch 301 ^/pengajuan-informasi/?$               "/governance/#kip"
+  RedirectMatch 301 ^/company-profile-wki/?$               "/governance/#documents"
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 3. Compression
+# ---------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml application/rss+xml
+  AddOutputFilterByType DEFLATE font/ttf font/otf application/vnd.ms-fontobject
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+  AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 4. Caching
+#    /_next/static/* is content-hashed, so it is immutable for a year.
+#    HTML must revalidate or a redeploy leaves stale pages in browser caches.
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                          "access plus 1 month"
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/avif                "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType application/pdf           "access plus 1 week"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:css|js|woff2?|ttf|otf|eot|png|jpe?g|gif|webp|avif|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # -------------------------------------------------------------------------
+  # 5. Security headers
+  # -------------------------------------------------------------------------
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+  Header unset X-Powered-By
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 6. MIME types Hostinger does not always declare
+# ---------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp                  .webp
+  AddType image/avif                  .avif
+  AddType image/svg+xml               .svg
+  AddType font/woff2                  .woff2
+  AddType application/manifest+json   .webmanifest
+  AddCharset UTF-8                    .html .css .js .json .txt
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 7. Keep dotfiles and source maps off the public web
+# ---------------------------------------------------------------------------
+<FilesMatch "^\.(?!well-known)">
+  Require all denied
+</FilesMatch>
+<FilesMatch "\.map$">
+  Require all denied
+</FilesMatch>
